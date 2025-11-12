@@ -1,0 +1,800 @@
+// ==========================================
+// USER CONTROLLER - COMPLETE IMPLEMENTATION
+// ==========================================
+
+package com.gym.user.controller;
+
+import com.gym.user.dto.UserDTO;
+import com.gym.user.dto.UserSummaryDTO;
+import com.gym.user.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/users")
+@Validated
+@Tag(name = "User Management", description = "APIs for managing users, trainers, and trainees")
+@SecurityRequirement(name = "Bearer Authentication")
+public class UserController {
+    
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+    
+    @Autowired
+    private UserService userService;
+    
+    /**
+     * Create a new user (Admin only)
+     * 
+     * @param userDTO User details
+     * @return Created user
+     */
+    @PostMapping
+    @Operation(summary = "Create a new user", description = "Admin can create users with any role")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "201", description = "User created successfully",
+                content = @Content(schema = @Schema(implementation = UserDTO.class))),
+        @ApiResponse(responseCode = "400", description = "Invalid input data"),
+        @ApiResponse(responseCode = "409", description = "Username or email already exists"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Admin access required")
+    })
+    public ResponseEntity<Map<String, Object>> createUser(
+            @Valid @RequestBody UserDTO userDTO,
+            @RequestHeader(value = "X-Auth-User-Id", required = false) Long currentUserId) {
+        
+        logger.info("Request to create user: {} by user ID: {}", userDTO.getUsername(), currentUserId);
+        
+        long startTime = System.currentTimeMillis();
+        
+        try {
+            UserDTO createdUser = userService.createUser(userDTO);
+            
+            long duration = System.currentTimeMillis() - startTime;
+            logger.info("User created successfully with ID: {} in {}ms", createdUser.getUserId(), duration);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "User created successfully");
+            response.put("data", createdUser);
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return new ResponseEntity<>(response, HttpStatus.CREATED);
+            
+        } catch (Exception e) {
+            logger.error("Error creating user: {}", e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Update an existing user (Admin only)
+     * 
+     * @param id User ID
+     * @param userDTO Updated user details
+     * @return Updated user
+     */
+    @PutMapping("/{id}")
+    @Operation(summary = "Update user", description = "Admin can update user details")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "User updated successfully"),
+        @ApiResponse(responseCode = "404", description = "User not found"),
+        @ApiResponse(responseCode = "400", description = "Invalid input data"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Admin access required")
+    })
+    public ResponseEntity<Map<String, Object>> updateUser(
+            @Parameter(description = "User ID", required = true)
+            @PathVariable Long id,
+            @Valid @RequestBody UserDTO userDTO,
+            @RequestHeader(value = "X-Auth-User-Id", required = false) Long currentUserId) {
+        
+        logger.info("Request to update user ID: {} by user ID: {}", id, currentUserId);
+        
+        long startTime = System.currentTimeMillis();
+        
+        try {
+            UserDTO updatedUser = userService.updateUser(id, userDTO);
+            
+            long duration = System.currentTimeMillis() - startTime;
+            logger.info("User updated successfully: {} in {}ms", id, duration);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "User updated successfully");
+            response.put("data", updatedUser);
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error updating user {}: {}", id, e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Soft delete a user (Admin only)
+     * 
+     * @param id User ID
+     * @return Success message
+     */
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete user", description = "Admin can soft delete users (sets isActive to false)")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "User deleted successfully"),
+        @ApiResponse(responseCode = "404", description = "User not found"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Admin access required")
+    })
+    public ResponseEntity<Map<String, Object>> deleteUser(
+            @Parameter(description = "User ID", required = true)
+            @PathVariable Long id,
+            @RequestHeader(value = "X-Auth-User-Id", required = false) Long currentUserId) {
+        
+        logger.info("Request to delete user ID: {} by user ID: {}", id, currentUserId);
+        
+        try {
+            userService.deleteUser(id);
+            
+            logger.info("User deleted successfully: {}", id);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "User deleted successfully");
+            response.put("userId", id);
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error deleting user {}: {}", id, e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Get user by ID
+     * 
+     * @param id User ID
+     * @return User details
+     */
+    @GetMapping("/{id}")
+    @Operation(summary = "Get user by ID", description = "Retrieve user details by ID")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "User found"),
+        @ApiResponse(responseCode = "404", description = "User not found"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized")
+    })
+    public ResponseEntity<Map<String, Object>> getUserById(
+            @Parameter(description = "User ID", required = true)
+            @PathVariable Long id) {
+        
+        logger.debug("Request to fetch user with ID: {}", id);
+        
+        try {
+            UserDTO user = userService.getUserById(id);
+            
+            logger.debug("User found: {}", id);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("data", user);
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error fetching user {}: {}", id, e.getMessage());
+            throw e;
+        }
+    }
+    
+    /**
+     * Get all users with pagination and sorting
+     * 
+     * @param page Page number (0-based)
+     * @param size Page size
+     * @param sortBy Sort field
+     * @param sortDir Sort direction (asc/desc)
+     * @return Paginated list of users
+     */
+    @GetMapping
+    @Operation(summary = "Get all users", description = "Retrieve all active users with pagination")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Users retrieved successfully"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Admin access required")
+    })
+    public ResponseEntity<Map<String, Object>> getAllUsers(
+            @Parameter(description = "Page number (0-based)")
+            @RequestParam(defaultValue = "0") @Min(0) int page,
+            
+            @Parameter(description = "Page size")
+            @RequestParam(defaultValue = "10") @Min(1) int size,
+            
+            @Parameter(description = "Sort by field")
+            @RequestParam(defaultValue = "userId") String sortBy,
+            
+            @Parameter(description = "Sort direction (asc/desc)")
+            @RequestParam(defaultValue = "asc") String sortDir) {
+        
+        logger.debug("Request to fetch all users - page: {}, size: {}, sortBy: {}, sortDir: {}", 
+                    page, size, sortBy, sortDir);
+        
+        try {
+            Sort.Direction direction = sortDir.equalsIgnoreCase("desc") ? 
+                                      Sort.Direction.DESC : Sort.Direction.ASC;
+            Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortBy));
+            
+            Page<UserDTO> users = userService.getAllUsers(pageable);
+            
+            logger.debug("Found {} users", users.getTotalElements());
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("data", users.getContent());
+            response.put("currentPage", users.getNumber());
+            response.put("totalItems", users.getTotalElements());
+            response.put("totalPages", users.getTotalPages());
+            response.put("pageSize", users.getSize());
+            response.put("hasNext", users.hasNext());
+            response.put("hasPrevious", users.hasPrevious());
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error fetching all users: {}", e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Get all trainers
+     * 
+     * @return List of trainers
+     */
+    @GetMapping("/trainers")
+    @Operation(summary = "Get all trainers", description = "Retrieve all active trainers")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Trainers retrieved successfully"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized")
+    })
+    public ResponseEntity<Map<String, Object>> getAllTrainers() {
+        
+        logger.debug("Request to fetch all trainers");
+        
+        try {
+            List<UserSummaryDTO> trainers = userService.getAllTrainers();
+            
+            logger.debug("Found {} trainers", trainers.size());
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("data", trainers);
+            response.put("count", trainers.size());
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error fetching trainers: {}", e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Get all trainees
+     * 
+     * @return List of trainees
+     */
+    @GetMapping("/trainees")
+    @Operation(summary = "Get all trainees", description = "Retrieve all active trainees (users with USER role)")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Trainees retrieved successfully"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Admin or Trainer access required")
+    })
+    public ResponseEntity<Map<String, Object>> getAllTrainees(
+            @RequestHeader(value = "X-Auth-Role", required = false) String role) {
+        
+        logger.debug("Request to fetch all trainees by role: {}", role);
+        
+        try {
+            List<UserSummaryDTO> trainees = userService.getAllTrainees();
+            
+            logger.debug("Found {} trainees", trainees.size());
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("data", trainees);
+            response.put("count", trainees.size());
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error fetching trainees: {}", e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Get users by role
+     * 
+     * @param role User role (ADMIN, TRAINER, USER)
+     * @return List of users with specified role
+     */
+    @GetMapping("/role/{role}")
+    @Operation(summary = "Get users by role", description = "Retrieve all active users with specified role")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Users retrieved successfully"),
+        @ApiResponse(responseCode = "400", description = "Invalid role"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized")
+    })
+    public ResponseEntity<Map<String, Object>> getUsersByRole(
+            @Parameter(description = "User role (ADMIN/TRAINER/USER)", required = true)
+            @PathVariable String role) {
+        
+        logger.debug("Request to fetch users with role: {}", role);
+        
+        try {
+            // Validate role
+            if (!role.matches("(?i)(ADMIN|TRAINER|USER)")) {
+                throw new IllegalArgumentException("Invalid role. Must be ADMIN, TRAINER, or USER");
+            }
+            
+            List<UserSummaryDTO> users = userService.getUsersByRole(role);
+            
+            logger.debug("Found {} users with role: {}", users.size(), role);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("data", users);
+            response.put("role", role.toUpperCase());
+            response.put("count", users.size());
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error fetching users by role {}: {}", role, e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Search users by various criteria
+     * 
+     * @param term Search term (username, email, name)
+     * @param role Filter by role (optional)
+     * @param page Page number
+     * @param size Page size
+     * @return Paginated search results
+     */
+    @GetMapping("/search")
+    @Operation(summary = "Search users", description = "Search users by username, email, or name")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Search completed successfully"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized")
+    })
+    public ResponseEntity<Map<String, Object>> searchUsers(
+            @Parameter(description = "Search term")
+            @RequestParam String term,
+            
+            @Parameter(description = "Filter by role (optional)")
+            @RequestParam(required = false) String role,
+            
+            @Parameter(description = "Page number")
+            @RequestParam(defaultValue = "0") @Min(0) int page,
+            
+            @Parameter(description = "Page size")
+            @RequestParam(defaultValue = "10") @Min(1) int size) {
+        
+        logger.debug("Request to search users with term: {}, role: {}", term, role);
+        
+        try {
+            Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, "firstName"));
+            
+            Page<UserDTO> users = userService.searchUsers(term, role, pageable);
+            
+            logger.debug("Search found {} users", users.getTotalElements());
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("data", users.getContent());
+            response.put("searchTerm", term);
+            response.put("role", role);
+            response.put("currentPage", users.getNumber());
+            response.put("totalItems", users.getTotalElements());
+            response.put("totalPages", users.getTotalPages());
+            response.put("pageSize", users.getSize());
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error searching users: {}", e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Get user statistics
+     * 
+     * @return User statistics
+     */
+    @GetMapping("/statistics")
+    @Operation(summary = "Get user statistics", description = "Get overall user statistics by role")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Statistics retrieved successfully"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Admin access required")
+    })
+    public ResponseEntity<Map<String, Object>> getUserStatistics() {
+        
+        logger.debug("Request to fetch user statistics");
+        
+        try {
+            Map<String, Long> statistics = userService.getUserStatistics();
+            
+            logger.debug("Statistics retrieved successfully");
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("data", statistics);
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error fetching user statistics: {}", e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Activate/Deactivate user
+     * 
+     * @param id User ID
+     * @param isActive Active status
+     * @return Updated user
+     */
+    @PatchMapping("/{id}/status")
+    @Operation(summary = "Update user status", description = "Activate or deactivate a user")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Status updated successfully"),
+        @ApiResponse(responseCode = "404", description = "User not found"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Admin access required")
+    })
+    public ResponseEntity<Map<String, Object>> updateUserStatus(
+            @Parameter(description = "User ID", required = true)
+            @PathVariable Long id,
+            
+            @Parameter(description = "Active status", required = true)
+            @RequestParam Boolean isActive) {
+        
+        logger.info("Request to update user {} status to: {}", id, isActive);
+        
+        try {
+            UserDTO updatedUser = userService.updateUserStatus(id, isActive);
+            
+            logger.info("User status updated successfully: {}", id);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "User status updated successfully");
+            response.put("data", updatedUser);
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error updating user status {}: {}", id, e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Get trainees assigned to a specific trainer
+     * 
+     * @param trainerId Trainer ID
+     * @return List of assigned trainees
+     */
+    @GetMapping("/trainer/{trainerId}/trainees")
+    @Operation(summary = "Get trainer's trainees", 
+               description = "Get all trainees assigned to a specific trainer")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Trainees retrieved successfully"),
+        @ApiResponse(responseCode = "404", description = "Trainer not found"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized")
+    })
+    public ResponseEntity<Map<String, Object>> getTrainerTrainees(
+            @Parameter(description = "Trainer ID", required = true)
+            @PathVariable Long trainerId) {
+        
+        logger.debug("Request to fetch trainees for trainer ID: {}", trainerId);
+        
+        try {
+            List<UserSummaryDTO> trainees = userService.getTrainerTrainees(trainerId);
+            
+            logger.debug("Found {} trainees for trainer {}", trainees.size(), trainerId);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("trainerId", trainerId);
+            response.put("data", trainees);
+            response.put("count", trainees.size());
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error fetching trainees for trainer {}: {}", trainerId, e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Bulk import users
+     * 
+     * @param users List of users to import
+     * @return Import results
+     */
+    @PostMapping("/bulk-import")
+    @Operation(summary = "Bulk import users", description = "Import multiple users at once")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Import completed"),
+        @ApiResponse(responseCode = "400", description = "Invalid input data"),
+        @ApiResponse(responseCode = "403", description = "Forbidden - Admin access required")
+    })
+    public ResponseEntity<Map<String, Object>> bulkImportUsers(
+            @Valid @RequestBody List<UserDTO> users,
+            @RequestHeader(value = "X-Auth-User-Id", required = false) Long currentUserId) {
+        
+        logger.info("Request to bulk import {} users by user ID: {}", users.size(), currentUserId);
+        
+        try {
+            Map<String, Object> importResults = userService.bulkImportUsers(users);
+            
+            logger.info("Bulk import completed - Success: {}, Failed: {}", 
+                       importResults.get("successCount"), importResults.get("failedCount"));
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "Bulk import completed");
+            response.put("data", importResults);
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error during bulk import: {}", e.getMessage(), e);
+            throw e;
+        }
+    }
+    
+    /**
+     * Change user password
+     * 
+     * @param id User ID
+     * @param passwordRequest Password change request
+     * @return Success message
+     */
+    @PatchMapping("/{id}/change-password")
+    @Operation(summary = "Change user password", description = "Change password for a user")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Password changed successfully"),
+        @ApiResponse(responseCode = "404", description = "User not found"),
+        @ApiResponse(responseCode = "400", description = "Invalid password")
+    })
+    public ResponseEntity<Map<String, Object>> changePassword(
+            @Parameter(description = "User ID", required = true)
+            @PathVariable Long id,
+            
+            @Valid @RequestBody Map<String, String> passwordRequest) {
+        
+        logger.info("Request to change password for user: {}", id);
+        
+        try {
+            String oldPassword = passwordRequest.get("oldPassword");
+            String newPassword = passwordRequest.get("newPassword");
+            
+            userService.changePassword(id, oldPassword, newPassword);
+            
+            logger.info("Password changed successfully for user: {}", id);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "Password changed successfully");
+            response.put("userId", id);
+            response.put("timestamp", System.currentTimeMillis());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error changing password for user {}: {}", id, e.getMessage(), e);
+            throw e;
+        }
+    }
+}
+
+// ==========================================
+// USER SERVICE - COMPLETE IMPLEMENTATION
+// ==========================================
+
+package com.gym.user.service;
+
+import com.gym.user.dto.UserDTO;
+import com.gym.user.dto.UserSummaryDTO;
+import com.gym.user.entity.User;
+import com.gym.user.exception.BadRequestException;
+import com.gym.user.exception.ResourceNotFoundException;
+import com.gym.user.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+@Service
+@Transactional
+public class UserService {
+    
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    
+    /**
+     * Create a new user
+     */
+    public UserDTO createUser(UserDTO userDTO) {
+        logger.info("Creating new user: {}", userDTO.getUsername());
+        
+        // Validate username uniqueness
+        if (userRepository.existsByUsername(userDTO.getUsername())) {
+            logger.error("Username already exists: {}", userDTO.getUsername());
+            throw new BadRequestException("Username '" + userDTO.getUsername() + "' already exists");
+        }
+        
+        // Validate email uniqueness
+        if (userRepository.existsByEmail(userDTO.getEmail())) {
+            logger.error("Email already exists: {}", userDTO.getEmail());
+            throw new BadRequestException("Email '" + userDTO.getEmail() + "' already exists");
+        }
+        
+        // Validate password
+        if (userDTO.getPassword() == null || userDTO.getPassword().length() < 6) {
+            throw new BadRequestException("Password must be at least 6 characters long");
+        }
+        
+        User user = convertToEntity(userDTO);
+        user.setPasswordHash(passwordEncoder.encode(userDTO.getPassword()));
+        user.setIsActive(true);
+        
+        User savedUser = userRepository.save(user);
+        logger.info("User created successfully with ID: {}", savedUser.getUserId());
+        
+        return convertToDTO(savedUser);
+    }
+    
+    /**
+     * Update an existing user
+     */
+    public UserDTO updateUser(Long userId, UserDTO userDTO) {
+        logger.info("Updating user with ID: {}", userId);
+        
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> {
+                    logger.error("User not found with ID: {}", userId);
+                    return new ResourceNotFoundException("User not found with ID: " + userId);
+                });
+        
+        // Check if email is being changed and if new email already exists
+        if (!user.getEmail().equals(userDTO.getEmail()) && 
+            userRepository.existsByEmail(userDTO.getEmail())) {
+            logger.error("Email already exists: {}", userDTO.getEmail());
+            throw new BadRequestException("Email '" + userDTO.getEmail() + "' already exists");
+        }
+        
+        // Update fields
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+        user.setEmail(userDTO.getEmail());
+        user.setPhone(userDTO.getPhone());
+        user.setDateOfBirth(userDTO.getDateOfBirth());
+        user.setGender(userDTO.getGender());
+        
+        // Update password if provided
+        if (userDTO.getPassword() != null && !userDTO.getPassword().isEmpty()) {
+            if (userDTO.getPassword().length() < 6) {
+                throw new BadRequestException("Password must be at least 6 characters long");
+            }
+            user.setPasswordHash(passwordEncoder.encode(userDTO.getPassword()));
+        }
+        
+        User updatedUser = userRepository.save(user);
+        logger.info("User updated successfully: {}", userId);
+        
+        return convertToDTO(updatedUser);
+    }
+    
+    /**
+     * Soft delete a user
+     */
+    public void deleteUser(Long userId) {
+        logger.info("Deleting user with ID: {}", userId);
+        
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> {
+                    logger.error("User not found with ID: {}", userId);
+                    return new ResourceNotFoundException("User not found with ID: " + userId);
+                });
+        
+        // Soft delete by setting isActive to false
+        user.setIsActive(false);
+        userRepository.save(user);
+        
+        logger.info("User soft deleted successfully: {}", userId);
+    }
+    
+    /**
+     * Get user by ID
+     */
+    public UserDTO getUserById(Long userId) {
+        logger.debug("Fetching user with ID: {}", userId);
+        
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> {
+                    logger.error("User not found with ID: {}", userId);
+                    return new ResourceNotFoundException("User not found with ID: " + userId);
+                });
+        
+        return convertToDTO(user);
+    }
+    
+    /**
+     * Get all active users with pagination
+     */
+    public Page<UserDTO> getAllUsers(Pageable pageable) {
+        logger.debug("Fetching all active users with pagination - page: {}, size: {}", 
+                    pageable.getPageNumber(), pageable.getPageSize());
+        
+        Page<User> users = userRepository.findAllActiveUsers(pageable);
+        
+        logger.debug("Found {} active users", users.getTotalElements());
+        
+        return users.map(this::convertToDTO);
+    }
