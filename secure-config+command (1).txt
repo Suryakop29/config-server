@@ -1,0 +1,6 @@
+Encrypt all the values in the entire file.
+java -cp secure-properties-tool.jar com.mulesoft.tools.SecurePropertiesTool file encrypt Blowfish CBC mulesoft salesforce.properties secure-salesforce.properties
+
+
+Encrypt entire file (key and values)
+java -cp secure-properties-tool.jar com.mulesoft.tools.SecurePropertiesTool file-level encrypt Blowfish CBC mulesoft salesforce.properties secure-salesforce.properties

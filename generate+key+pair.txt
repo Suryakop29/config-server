@@ -1,0 +1,3 @@
+Command Executed in the demo:
+
+to generate the key pair (public key associated with private key) keytool -v -genkeypair -keyalg RSA -dname "cn=localhost, ou=Training, o=Techlightning, c=US" -ext SAN="DNS:localhost,IP:127.0.0.1" -validity 365 -alias server -keystore "httpsdemo-dev.p12" -storetype pkcs12 -storepass "test12345"

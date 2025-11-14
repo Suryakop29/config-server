@@ -1,0 +1,6 @@
+1) Signup the salesforce account using https://developer.salesforce.com/signup    link.
+2) Note down the login username, password, security token. These details we will use it in our exercise.
+
+
+
+note: please use above URL for signup, so that it will allow the access to invoke Salesforce API by default, without giving any access issues.

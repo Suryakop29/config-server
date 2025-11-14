@@ -1,0 +1,19 @@
+create-employee: http://localhost:8091/emp-sapi/create-employee
+
+		{
+		  "employeeID": 100,
+		  "employeeName": "Chinna",
+		  "employeeStatus": "A"
+		}
+		
+update-employee: http://localhost:8091/emp-sapi/update-employee
+
+		<?xml version="1.0" encoding="UTF-8"?>
+		<employee>
+		   <employeeID>100</employeeID>
+		   <employeeStatus>I</employeeStatus>
+		</employee>
+		
+get-employee: http://localhost:8081/emp-sapi/get-employee?employeeID=100
+
+delete-employee: http://localhost:8091/emp-sapi/delete-employee/101/John
