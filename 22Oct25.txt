@@ -1,0 +1,10 @@
+
+22/10/25
+
+=====================  
+spring data joins -- left join
+
+txn mgt, saga dsgn patrn -- micro services
+
+
+

@@ -1,0 +1,149 @@
+
+Week3
+========
+
+https://www.coursera.org/learn/applications-development-microservices-serverless-openshift  - 1 module completed
+https://www.coursera.org/specializations/microservices	-- started (total53 mins)
+https://www.pluralsight.com/courses/java-microservices-spring-cloud-developing-services  -- currrently in 2nd module (total 5 modules -- 3hrs remaining)
+https://www.pluralsight.com/courses/microservices-rest-apis-spring-data -- total 9 modules 
+https://www.coursera.org/learn/agile-software-development	-- total 4 modules
+https://app.pluralsight.com/library/courses/scrum-introducing/table-of-contents  --51 mins
+https://www.coursera.org/learn/spring-boot-embedded-db --1hr 51 min
+https://capgemini.udemy.com/course/devopscrash/	-- 3hrs
+https://app.pluralsight.com/library/courses/agile-team-practices-scrum/table-of-contents  --repeated
+https://www.coursera.org/projects/cicd-using-jenkins	-- 1hr 10 min
+https://www.pluralsight.com/courses/github-getting-started 4hr 4 min
+https://app.pluralsight.com/library/courses/building-use-multi-node-jenkins-farm/table-of-contents --2hr
+https://app.pluralsight.com/ilx/jenkins-fundamentals/table-of-content  --5 hrs
+https://www.coursera.org/learn/docker-certified-associate-docker-fundamentals	--1hr 
+https://www.pluralsight.com/courses/docker-building-running-first-app --2hr 9 min
+https://www.pluralsight.com/courses/docker-compose-building-orchestrating-containers --1hr 38min
+https://www.pluralsight.com/courses/deploying-containerized-applications --3 hrs
+https://www.coursera.org/specializations/aws-fundamentals	-- 2hr 5 min
+https://www.pluralsight.com/courses/aws-developer-getting-started  --4hr 10 min
+
+
+F
+
+
+https://www.coursera.org/learn/applications-development-microservices-serverless-openshift 
+https://www.coursera.org/specializations/microservices
+https://www.coursera.org/learn/agile-software-development
+https://www.coursera.org/learn/spring-boot-embedded-db https://capgemini.udemy.com/course/devopscrash/
+https://www.coursera.org/projects/cicd-using-jenkins
+https://www.coursera.org/learn/docker-certified-associate-docker-fundamentals
+https://www.coursera.org/specializations/aws-fundamentals
+
+G
+https://www.pluralsight.com/courses/java-microservices-spring-cloud-developing-services
+https://www.pluralsight.com/courses/microservices-rest-apis-spring-data"
+https://app.pluralsight.com/library/courses/scrum-introducing/table-of-contents  
+https://app.pluralsight.com/library/courses/agile-team-practices-scrum/table-of-contents
+https://www.pluralsight.com/courses/github-getting-started, 
+https://app.pluralsight.com/library/courses/building-use-multi-node-jenkins-farm/table-of-contents
+https://app.pluralsight.com/ilx/jenkins-fundamentals/table-of-content
+https://www.pluralsight.com/courses/docker-building-running-first-app,
+https://www.pluralsight.com/courses/docker-compose-building-orchestrating-containers, 
+https://www.pluralsight.com/courses/deploying-containerized-applications
+https://www.pluralsight.com/courses/aws-developer-getting-started
+
+
+Week2
+
+https://app.pluralsight.com/library/courses/java-persistence-hibernate-fundamentals/table-of-contents  
+https://www.coursera.org/learn/spring-mvc-rest-controller	
+https://www.pluralsight.com/courses/spring-jpa-hibernate
+https://www.pluralsight.com/courses/spring-framework-overview-spring-data 
+https://app.pluralsight.com/library/courses/spring-framework-spring-mvc-fundamentals/table-of-contents"
+https://www.coursera.org/learn/spring-mvc-rest-controller 
+https://www.coursera.org/learn/packt-spring-boot-foundations-lutga 	
+https://app.pluralsight.com/library/courses/spring-big-picture
+https://app.pluralsight.com/library/courses/creating-first-spring-boot-application
+https://app.pluralsight.com/library/courses/spring-security-fundamentals/table-of-contents"
+
+F
+
+https://app.pluralsight.com/library/courses/java-persistence-hibernate-fundamentals/table-of-contents  -- 2hr 38 min (3 mod completed)
+https://www.coursera.org/learn/spring-mvc-rest-controller (2hr)
+
+https://www.coursera.org/learn/packt-spring-boot-foundations-lutga -- completed
+
+G
+
+https://www.pluralsight.com/courses/spring-jpa-hibernate  -- 3hr (3 modules completed)
+https://www.pluralsight.com/courses/spring-framework-overview-spring-data 1 hr (1 mod completed remaining 3mod)
+https://app.pluralsight.com/library/courses/spring-framework-spring-mvc-fundamentals/table-of-contents -- 2hr 32 min
+"https://app.pluralsight.com/library/courses/spring-big-picture  ---completed
+https://app.pluralsight.com/library/courses/creating-first-spring-boot-application  -- completed
+https://app.pluralsight.com/library/courses/spring-security-fundamentals/table-of-contents  --4hr 48 mins (3 modules completed)
+
+
+Week1
+======
+
+
+https://www.coursera.org/specializations/core-java-course#courses  
+https://www.coursera.org/projects/intermediate-oop-java  
+https://www.coursera.org/projects/introduction-to-java-programming-java-fundamental-concepts  
+https://www.coursera.org/learn/fundamentals-of-java-programming	
+https://app.pluralsight.com/library/courses/java-8-whats-new/table-of-contents
+https://www.coursera.org/projects/unit-testing-in-java?msockid=3ce506b98ce0660e2e3d135f8d7b674c
+https://www.coursera.org/learn/introduction-test-driven-development
+https://www.coursera.org/projects/test-driven-development-in-java"	
+https://app.pluralsight.com/library/courses/junit-5-fundamentals/table-of-contents
+https://app.pluralsight.com/library/courses/tdd-junit5/table-of-contents
+https://capgemini.udemy.com/course/mockito-tutorial-with-junit-examples/
+https://capgemini.udemy.com/course/learn-unit-testing-with-spring-boot/
+https://capgemini.udemy.com/course/junitandmockitocrashcourse/
+https://capgemini.udemy.com/course/mockito-tutorial-with-junit-examples/"
+https://app.pluralsight.com/library/courses/introduction-to-sql
+https://app.pluralsight.com/library/courses/managing-database-instances-oracle-cert
+https://app.pluralsight.com/library/courses/optimizing-sql-queries-oracle
+https://app.pluralsight.com/library/courses/oracle-database-program-writing-executable-statements
+https://app.pluralsight.com/library/courses/oracle-database-prgram-declaring-variables
+https://capgemini.udemy.com/course/the-complete-sql-bootcamp/
+https://app.pluralsight.com/library/courses/oracle-plsql-transactions-dynamic-sql-debugging
+https://app.pluralsight.com/library/courses/oracle-plsql-fundamentals
+https://app.pluralsight.com/library/courses/oracle-plsql-fundamentals-part2
+https://app.pluralsight.com/library/courses/oracle-database-prgram-plsql-use-explicit-cursors-cert
+https://app.pluralsight.com/library/courses/oracle-database-pr/ogram-plsql-writing-sql-in-plsql-cert
+https://app.pluralsight.com/library/courses/oracle-database-program-plsql-creating-compound-ddl-event-database-triggers-cert
+https://app.pluralsight.com/library/courses/oracle-database-program-using-plsql-subprograms-cert
+https://app.pluralsight.com/library/courses/oracle-database-program-managing-plsql-code-cert
+https://app.pluralsight.com/library/courses/oracle-rest-data-services"
+
+
+F
+
+https://www.coursera.org/specializations/core-java-course#courses  
+https://www.coursera.org/projects/intermediate-oop-java 
+https://www.coursera.org/projects/introduction-to-java-programming-java-fundamental-concepts  
+https://www.coursera.org/learn/fundamentals-of-java-programming
+https://www.coursera.org/projects/unit-testing-in-java?msockid=3ce506b98ce0660e2e3d135f8d7b674c
+https://www.coursera.org/learn/introduction-test-driven-development
+https://www.coursera.org/projects/test-driven-development-in-java"
+
+G
+
+https://app.pluralsight.com/library/courses/java-8-whats-new/table-of-contents
+https://app.pluralsight.com/library/courses/junit-5-fundamentals/table-of-contents
+https://app.pluralsight.com/library/courses/tdd-junit5/table-of-contents
+https://capgemini.udemy.com/course/mockito-tutorial-with-junit-examples/
+https://capgemini.udemy.com/course/learn-unit-testing-with-spring-boot/
+https://capgemini.udemy.com/course/junitandmockitocrashcourse/
+https://capgemini.udemy.com/course/mockito-tutorial-with-junit-examples/" --repeated
+https://app.pluralsight.com/library/courses/introduction-to-sql
+https://app.pluralsight.com/library/courses/managing-database-instances-oracle-cert
+https://app.pluralsight.com/library/courses/optimizing-sql-queries-oracle
+https://app.pluralsight.com/library/courses/oracle-database-program-writing-executable-statements
+https://app.pluralsight.com/library/courses/oracle-database-prgram-declaring-variables
+https://capgemini.udemy.com/course/the-complete-sql-bootcamp/
+https://app.pluralsight.com/library/courses/oracle-plsql-transactions-dynamic-sql-debugging
+https://app.pluralsight.com/library/courses/oracle-plsql-fundamentals
+https://app.pluralsight.com/library/courses/oracle-plsql-fundamentals-part2
+https://app.pluralsight.com/library/courses/oracle-database-prgram-plsql-use-explicit-cursors-cert
+https://app.pluralsight.com/library/courses/oracle-database-pr/ogram-plsql-writing-sql-in-plsql-cert
+https://app.pluralsight.com/library/courses/oracle-database-program-plsql-creating-compound-ddl-event-database-triggers-cert
+https://app.pluralsight.com/library/courses/oracle-database-program-using-plsql-subprograms-cert
+https://app.pluralsight.com/library/courses/oracle-database-program-managing-plsql-code-cert
+https://app.pluralsight.com/library/courses/oracle-rest-data-services
