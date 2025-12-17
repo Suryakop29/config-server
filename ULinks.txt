@@ -1,0 +1,58 @@
+
+
+EKS-ALB
+
+https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html
+
+
+aws eks update-kubeconfig --region us-east-1 --name inteldev-eks-cluster-dev
+
+curl -O https://s3.us-east-1.amazonaws.com/amazon-eks/1.30.0/2024-05-12/bin/linux/amd64/kubectl
+
+
+curl -O https://s3.us-east-1.amazonaws.com/amazon-eks/1.30.0/2024-05-12/bin/linux/amd64/kubectl.sha256
+
+
+kubectl config delete-cluster inteldev-eks-cluster-temp-dev
+
+$ kubectl config delete-context inteldev-eks-cluster-temp-dev
+
+
+aws eks update-kubeconfig --region us-east-1 --name inteldev-eks-cluster-dev-temp
+
+kubectl get pod job-snfinterfacefeed-o1oz3uoh-8x6m2 -o yaml -n sdp
+
+
+to check out ep in vs after cloning
+
+git checkout aws-release
+
+add in .aws/config file 
+
+[profile dev-cicd]
+role_arn = arn:aws:iam::851725287825:role/inteldev-cicd-infra-svc-role-dev
+source_profile = dev
+to delete pods based on string
+
+
+kubectl get pods -n sdp | Select-String 'job-scopehostest-uat-' | ForEach-Object { $_.Line.Split(' ')[0] } | ForEach-Object { kubectl delete pod $_ -n sdp }
+
+ 
+ 
+ to config env..
+ 
+ AWS configure sso
+ set aws_profile=uat
+aws eks update-kubeconfig --region us-east-1 --name inteldev-eks-cluster-uat --profile uat
+ 
+
+
+# Check job status
+kubectl describe job job-scopebillinghouse-il6xsvfs 
+
+# Check pod logs
+kubectl logs -l job-name=job-scopebillinghouse-ggn32pvj
+
+# Check pod events
+kubectl describe pod -l job-name=job-scopebillinghouse-ggn32pvj
+

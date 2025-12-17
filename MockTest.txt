@@ -1,0 +1,641 @@
+Question 9:
+// SetupArray.java
+
+public class SetupArray {
+
+    public static void main(String[] args) {
+
+        int[] data;
+
+        data = new int[4];
+
+        data[1] = 5;
+
+        data[2] = 10;
+
+        System.out.println("[" + data[1] + ", " + data[2] + "]");
+
+    }
+
+}
+
+Which array declarations correctly set up an array so the program outputs [5, 10]?
+
+Your selection is incorrect
+"int[] data = new int[]{100, 100};"
+
+"short[] data = new short[2];"
+
+Your selection is correct
+"int[] data = new int[]{0, 0, 0, 0};"
+
+Correct selection
+"short[] data; data = new short[3];"
+
+Correct selection
+"byte[] data = new byte[10];"
+
+
+====
+
+public class ElementOutputTest {
+
+    public static void main(String[] args) {
+
+        int[] numbers = {3, 4, 0};
+
+        for (int num : numbers) {
+
+            System.out.println(numbers[num]);
+
+        }
+
+    }
+
+}
+
+What will be the result of compiling and executing the ElementOutputTest class?
+
+Correct answer
+ArrayIndexOutOfBoundsException
+
+Compilation error
+
+"0, 1, 2"
+
+Your answer is incorrect
+"3, 4, 0”
+
+"0, 4, 3”
+
+=====
+
+public class AccessModifierTest {
+
+    public static void main(String[] args) {
+
+        System.out.println("Which of these access modifiers can be used for a top-level interface?");
+
+    }
+
+}
+
+
+
+Which of the following options accurately fills in the blank above?
+
+All of the other options
+
+Your answer is correct
+public
+
+private
+
+protected
+
+===
+
+
+import java.time.Period;
+
+
+
+public class PeriodTest {
+
+    public static void main(String[] args) {
+
+        Period period = Period.of(0, 0, 0);
+
+        System.out.println(period);
+
+    }
+
+}
+
+What will be the result of compiling and executing the PeriodTest class?
+
+p0y0m0d
+
+p0d
+
+P0Y0M0D
+
+Your answer is correct
+P0D
+
+======
+
+EncapsulationExample.java
+
+public class EncapsulationExample {
+
+    public static void main(String[] args) {
+
+        System.out.println("Which concept uses access modifiers to protect variables and hide them within a class?");
+
+    }
+
+}
+
+Which of the following options accurately fills in the blanks above?
+
+Inheritance
+
+Correct answer
+Encapsulation
+
+Your answer is incorrect
+Abstraction
+
+Polymorphism
+==========
+
+
+public class CollectionTest {
+
+    public static void main(String[] args) {
+
+        List<String> list = new ArrayList<>();
+
+    }
+
+}
+
+Which of the following options, if used to instantiate list, compiles successfully?
+
+new List<String>()
+
+Your selection is correct
+new ArrayList<String>()
+
+Your selection is correct
+new ArrayList<>()
+
+new List<>()
+
+===============
+
+
+public class ListOperations {
+
+    public static void main(String[] args) {
+
+        List<Integer> values = new ArrayList<>();
+
+        values.add(100);
+
+        values.add(200);
+
+        values.add(100);
+
+        values.add(200);
+
+        values.remove(Integer.valueOf(100));
+
+
+
+        System.out.println(values);
+
+    }
+
+}
+
+What will be the output when the ListOperations class is executed?
+
+"[100, 200, 200]"
+
+Exception is thrown at runtime
+
+Compilation error
+
+Your answer is correct
+"[200, 100, 200]"
+
+"[200, 200]"
+
+========
+
+
+NullArray.java
+
+public class NullArray {
+
+    public static void main(String[] args) {
+
+        Double[] numericValues = new Double[2];
+
+        System.out.println(numericValues[0] + numericValues[1]);
+
+    }
+
+}
+
+What will be the output when the NullArray class is executed?
+
+ClassCastException is thrown at runtime
+
+Your answer is correct
+NullPointerException is thrown at runtime
+
+"0.0"
+
+Compilation error
+
+=====
+
+NullArray.java
+
+public class NullArray {
+
+    public static void main(String[] args) {
+
+        Double[] numericValues = new Double[2];
+
+        System.out.println(numericValues[0] + numericValues[1]);
+
+    }
+
+}
+
+What will be the output when the NullArray class is executed?
+
+ClassCastException is thrown at runtime
+
+Your answer is correct
+NullPointerException is thrown at runtime
+
+"0.0"
+
+Compilation error
+
+=============
+
+
+public class ExceptionTest {
+
+    public static void main(String[] args) {
+
+        checkException(); // Line 3
+
+    }
+
+
+
+    private static void checkException() throws Exception { // Line 6
+
+        System.out.println("EXCEPTION NOT THROWN"); // Line 7
+
+    }
+
+}
+
+What will be the result of compiling and executing the ExceptionTest class?
+
+Compilation error at Line 6
+
+"EXCEPTION NOT THROWN"
+
+Your answer is correct
+Compilation error at Line 3
+
+Compilation error at Line 7
+
+Overall explanation
+If a method declares to throw an Exception or its subtype other than RuntimeException, the calling method should either handle the exception or declare it in its throws clause. In this case, the checkException() method declares to throw Exception, so the main method should either handle this exception or declare it.
+
+=====================
+
+
+ RecursiveMain.java
+
+public class RecursiveMain {
+
+    public static void main(String[] args) {
+
+        try {
+
+            main(args);
+
+        } catch (Exception ex) {
+
+            System.out.println("CATCH-");
+
+        }
+
+        System.out.println("OUT");
+
+    }
+
+}
+
+What will be the result of compiling and executing RecursiveMain class?
+
+Your answer is correct
+None of the System.out.println statements are executed
+
+"CATCH-OUT"
+
+Compilation error
+
+"OUT"
+
+
+==============
+
+
+
+public class GradeCheck {
+
+    public static void main(String[] args) {
+
+        int score = 60;
+
+        if(score = 60)
+
+            System.out.println("Passed...");
+
+        else
+
+            System.out.println("Failed...");
+
+    }
+
+)
+
+What will be the result of compiling and executing the GradeCheck class?
+
+No output
+
+Your answer is correct
+Compilation error
+
+"Passed..."
+
+"Failed..."
+
+Overall explanation
+In the boolean expression of an if statement, allowed expressions include conditions that return true or false, boolean variables, boolean literals, and boolean assignments. Here, score = 60 is an integer assignment, not a boolean assignment, hence a compilation error occurs.
+
+===================
+
+
+// GarbageCollectionTest.java
+
+
+
+class WritingInstrument {
+
+}
+
+
+
+public class GarbageCollectionTest {
+
+    public static void main(String[] args) {
+
+        new WritingInstrument(); // Line 1
+
+        WritingInstrument w = new WritingInstrument(); // Line 2
+
+        change(w); // Line 3
+
+        System.out.println("About to end."); // Line 4
+
+    }
+
+    public static void change(WritingInstrument wi) { // Line 5
+
+        wi = new WritingInstrument(); // Line 6
+
+    }
+
+}
+How many objects of WritingInstrument class are eligible for Garbage Collection at Line 4?
+
+1
+
+0
+
+3
+
+Your answer is correct
+2
+
+======================
+
+
+public class ArrayDeclarationTest {
+
+    public static void main(String[] args) {
+
+        int [] arr1 = new int[8];
+
+        int [] arr3 [] = new int[8][];
+
+        int [][] arr2 = new int[8][8];
+
+        int arr4[][] = new int[][8];
+
+    }
+
+}
+
+Which of the following is not a valid array declaration?
+
+int arr3[][] = new int[8][];
+
+int arr2[][] = new int[8][8];
+
+Your answer is correct
+int arr4[][] = new int[][8];
+
+int arr1[] = new int[8];
+
+Overall explanation
+Java requires the first dimension of an array to be specified during declaration. Omitting the size of the first dimension results in a compilation error.
+
+================
+
+// PointTest.java
+
+public class Point {
+
+    int x;
+
+    int y;
+
+
+
+    void assign(int newX, int newY) {
+
+        x = this.x;
+
+        this.y = newY;
+
+    }
+
+
+
+    public String toString() {
+
+        return "Point(" + x + ", " + y + ")";
+
+    }
+
+}
+
+
+
+public class PointTest {
+
+    public static void main(String[] args) {
+
+        Point p1 = new Point();
+
+        p1.x = 10;
+
+        p1.y = 20;
+
+        Point p2 = new Point();
+
+        p2.assign(p1.x, p1.y);
+
+        System.out.println(p1 + ";" + p2);
+
+    }
+
+}
+
+What will be the result of compiling and executing PointTest class?
+
+"Point(10, 20);Point(10, 20)"
+
+Your answer is correct
+"Point(10, 20);Point(0, 20)"
+
+None of the other options
+
+"Point(0, 20);Point(10, 20)"
+
+"Point(0, 20);Point(0, 20)"
+
+============
+
+// ArrayTypeMismatchTest.java
+
+
+
+public class ArrayTypeMismatchTest {
+
+    public static void main(String[] args) {
+
+        double[] arr = new int[2]; // Line 3
+
+        System.out.println(arr[0]); // Line 4
+
+    }
+
+}
+
+What will be the result of compiling and executing ArrayTypeMismatchTest class?
+
+0
+
+0.0
+
+Your answer is correct
+Line 3 causes a compilation error
+
+Line 4 causes a runtime exception
+
+================
+
+public class OutputTest {
+
+    public static void main(String[] args) {
+
+        System.out.println("Output is: " + 10 != 5);
+
+    }
+
+}
+
+What will be the result of compiling and executing the OutputTest class?
+
+"Output is: false”
+
+Your answer is correct
+Compilation error
+
+"Output is: 10 != 5”
+
+"Output is: true”
+
+Overall explanation
+The concatenation operator (+) has higher precedence than the inequality operator (!=). This leads to a comparison between a string and an integer, causing a compilation error.
+
+
+======================
+
+/ LoopCheckTest.java
+public class LoopCheckTest {
+    public static void main(String[] args) {
+        int x = 1;
+        while(checkAndIncrement(x)) {
+            System.out.println(x);
+        }
+    }
+    private static boolean checkAndIncrement(int x) {
+
+        if(x < 5) {
+            x++;
+            return true;
+        } else {
+           return false;
+        }
+    }
+}
+
+What will be the result of compiling and executing LoopCheckTest class?
+
+4
+
+1
+
+2
+
+3
+
+Your answer is correct
+Infinite loop
+=================
+
+public class StringTest {
+
+    public static void main(String[] args) {
+
+        String s1 = new String("Core");
+
+        String s2 = new String("CoRe");
+
+        System.out.println(s1 = s2);
+
+    }
+
+}
+
+What will be the result of executing the StringTest class?
+
+Your answer is correct
+"CoRe"
+
+None of the above
+
+"core”
+
+"Core”
+
+Overall explanation
+The System.out.println(s1 = s2) statement uses the assignment operator, which assigns s2 to s1 and then prints "CoRe".
+
+===============

@@ -1,0 +1,638 @@
+Hbase columns for entities from NCE
+===================================
+
+1 Cable Modem 
+
+hbase:003:0> get 'entity-charter','085b75f4270f4de739a8da4eaa4e9f1cf4c02016'
+COLUMN                             CELL
+ p:Billing_LOB                     timestamp=1747565727175, value=LOB_DATA
+ p:Billing_LOB_DATA                timestamp=1747565727175, value=1
+ p:Billing_account                 timestamp=1747565727175, value=8361102980162887
+ p:Billing_account_hashKey         timestamp=1747565727175, value=f07bf47f5a1a229d081c48ea3c2628c209b260aa
+ p:Billing_addressable             timestamp=1747565727175, value=1
+ p:Billing_area                    timestamp=1747565727175, value=neo
+ p:Billing_area_hashKey            timestamp=1747565727175, value=8d5fa3074415cb208ebf2ad4005f36d53fb732a9
+ p:Billing_cdf_hashKey             timestamp=1747565727175, value=2f5beb9ee02bd3879c077f4256bdcd731e488f1f
+ p:Billing_custOwned               timestamp=1747565727175, value=0
+ p:Billing_division                timestamp=1747565727175, value=can
+ p:Billing_division_hashKey        timestamp=1747565727175, value=320482152e8fe34f9a7b529da102224e5798dc92
+ p:Billing_enabled                 timestamp=1747565727175, value=1
+ p:Billing_enterprise              timestamp=1747565727175, value=twc
+ p:Billing_enterprise_hashKey      timestamp=1747565727175, value=ced228b4c1b1713ddeb6e16f8394da3ee8a8b288
+ p:Billing_entityType              timestamp=1747565727175, value=CableModem
+ p:Billing_equipmentType           timestamp=1747565727175, value=MTA
+ p:Billing_equipment_hashKey       timestamp=1747565727175, value=2171db518a081982473a191244339e6e7fc93b06
+ p:Billing_hub                     timestamp=1747565727175, value=P1
+ p:Billing_hub_hashKey             timestamp=1747565727175, value=a5e9d63871cb278c14993d8a4597ccb5b93c4ba9
+ p:Billing_importComplete          timestamp=1747565727175, value=1
+ p:Billing_installDate             timestamp=1747565727175, value=22-FEB-22
+ p:Billing_mac                     timestamp=1747565727175, value=147D056FE240
+ p:Billing_make                    timestamp=1747565727175, value=SercommCorporation
+ p:Billing_market                  timestamp=1747565727175, value=mwe
+ p:Billing_market_hashKey          timestamp=1747565727175, value=9f294999f774daaa72973d3b35c454a0ab18e9d2
+ p:Billing_mgtArea_hashKey         timestamp=1747565727175, value=2bfe193c7ce44984f3b43e7d5d34579a3f1086e1
+ p:Billing_mgtArea_name            timestamp=1747565727175, value=noh
+ p:Billing_model                   timestamp=1747565727175, value=es2251
+ p:Billing_node                    timestamp=1747565727175, value=NWP41
+ p:Billing_node_hashKey            timestamp=1747565727175, value=d7925b0ec7dd8178cdefad22c3c819b7b80d2a64
+ p:Billing_port                    timestamp=1747565727175, value=VT86
+ p:Billing_region_hashKey          timestamp=1747565727175, value=b6998fd2a7a586a7f10946ef0ba43d7f567a6295
+ p:Billing_region_name             timestamp=1747565727175, value=glk
+ p:Billing_serial                  timestamp=1747565727175, value=2137CVXP25647
+ p:Billing_sys                     timestamp=1747565727175, value=8361
+ p:Billing_sysActual               timestamp=1747565727175, value=8361
+ p:Dirty_bondStatus                timestamp=1747582713548, value=2
+ p:Dirty_bootversion               timestamp=1747582713548, value=CGR2.86C.703059.R.2204260958
+ p:Dirty_cmts_hashKey              timestamp=1747582713548, value=28a06ba081105d1625ea33b4f91da1338d3f6cc8
+ p:Dirty_diplexerCapability        timestamp=1747582713548, value=25
+ p:Dirty_diplexerCfgBandEdge       timestamp=1747582713548, value=42
+ p:Dirty_diplexerCfgDsLowerBandEdg timestamp=1747582713548, value=258
+ e
+ p:Dirty_diplexerCfgDsUpperBandEdg timestamp=1747582713548, value=1218
+ e
+ p:Dirty_diplexerDsLowerCapability timestamp=1747582713548, value=2
+ p:Dirty_diplexerDsUpperCapability timestamp=1747582713548, value=1
+ p:Dirty_docsisVersion             timestamp=1747582713548, value=3.1
+ p:Dirty_enabled                   timestamp=1747582713548, value=1
+ p:Dirty_entityType                timestamp=1747582713548, value=CableModem
+ p:Dirty_ethernetHighSpeed         timestamp=1747582713548, value=1000000000
+ p:Dirty_ethernetSpeed             timestamp=1747582713548, value=1000000000
+ p:Dirty_hwVersion                 timestamp=1747582713548, value=1.2
+ p:Dirty_ipv6                      timestamp=1747582713548, value=2605:a000:c02:f5:817c:43df:2be2:417c
+ p:Dirty_lastPoll                  timestamp=1747582713548, value=1747582566
+ p:Dirty_lastseen                  timestamp=1747582713548, value=1747582359
+ p:Dirty_lbgroup                   timestamp=1747582713548, value=33560576
+ p:Dirty_make                      timestamp=1747582713548, value=Sercomm
+ p:Dirty_maxUsableDsFreq           timestamp=1747582713548, value=0
+ p:Dirty_maxUsableUsFreq           timestamp=1747582713548, value=0
+ p:Dirty_minUsableDsFreq           timestamp=1747582713548, value=0
+ p:Dirty_model                     timestamp=1747582713548, value=ES2251
+ p:Dirty_modemDsIfaceCnt           timestamp=1747582713548, value=31
+ p:Dirty_modemOfdmIfaceCnt         timestamp=1747582713548, value=1
+ p:Dirty_modemOfdmaIfaceCnt        timestamp=1747582713548, value=0
+ p:Dirty_modemUsIfaceCnt           timestamp=1747582713548, value=4
+ p:Dirty_modem_index               timestamp=1747582713548, value=63072
+ p:Dirty_ofdmAssignments           timestamp=1747582713548, value=eyIyZDUwMTg2ZWZjMDNmMmM5NDM4MzZkZjc3Y2Y3MTQ1ZDZkMjYwN2I0IjpbMCwxLDJ
+                                   dfQ==
+ p:Dirty_ofdm_hashKey              timestamp=1747582713548, value=2d50186efc03f2c943836df77cf7145d6d2607b4
+ p:Dirty_partialBond               timestamp=1747577539520, value=
+ p:Dirty_partialChanState          timestamp=1747582713548, value=
+ p:Dirty_partiallyBonded           timestamp=1747577539520, value=false
+ p:Dirty_poller                    timestamp=1747582713548, value=codcoh-clmk-scope-poller-25
+ p:Dirty_serial                    timestamp=1747582713548, value=2137CVXP25647
+ p:Dirty_sgId                      timestamp=1747582713548, value=3
+ p:Dirty_swVersion                 timestamp=1747582713548, value=01.06.66-UNI-C3R
+ p:Dirty_sysDescr                  timestamp=1747582713548, value=PacketCable 2.0 EDVA <<HW_REV: 1.2; VENDOR: Sercomm Corporation; BO
+                                   OTR: CGR2.86C.703059.R.2204260958; SW_REV: 01.06.66-UNI-C3R; MODEL: ES2251>>
+ p:Dirty_tcsDrwTop                 timestamp=1747582713548, value=0
+ p:Dirty_tcsPhigh                  timestamp=1747582713548, value=0
+ p:Dirty_uptime                    timestamp=1747582713548, value=13390023
+ p:Dirty_usPartialBond             timestamp=1747577682847, value=
+ p:Dirty_usPartiallyBonded         timestamp=1747577682847, value=false
+ p:ElasticSearch_hash              timestamp=1737473645543, value=\xA1\xB0\xF1\xAAW\x06@\x18\x8B8\x15\x14\xF0\x9BQ\x5C\xA1'O\xC4
+ p:Entity_key                      timestamp=1747582713548, value=147d056fe240
+ p:Entity_keyAttr                  timestamp=1747582713548, value=mac
+ p:Entity_scope                    timestamp=1747582713548, value=a81d99414a6ce3c68438699293f02317f5fbeb64
+ p:ModemScanner_bootversion        timestamp=1747550790670, value=CGR2.86C.703059.R.2204260958
+ p:ModemScanner_cmts               timestamp=1747550790670, value=peruoh0103m.netops.charter.com
+ p:ModemScanner_cmts_hashKey       timestamp=1747550790670, value=28a06ba081105d1625ea33b4f91da1338d3f6cc8
+ p:ModemScanner_division           timestamp=1747550790670, value=
+ p:ModemScanner_docsisVersion      timestamp=1747550790670, value=3.1
+ p:ModemScanner_downstream         timestamp=1747550790670, value=cable-downstream 12/2/0;cable-downstream 12/2/1;cable-downstream 12
+                                   /2/10;cable-downstream 12/2/11;cable-downstream 12/2/12;cable-downstream 12/2/13;cable-downstream
+                                   12/2/14;cable-downstream 12/2/15;cable-downstream 12/2/16;cable-downstream 12/2/17;cable-downstrea
+                                   m 12/2/18;cable-downstream 12/2/19;cable-downstream 12/2/2;cable-downstream 12/2/20;cable-downstre
+                                   am 12/2/21;cable-downstream 12/2/22;cable-downstream 12/2/23;cable-downstream 12/2/24;cable-downst
+                                   ream 12/2/25;cable-downstream 12/2/26;cable-downstream 12/2/27;cable-downstream 12/2/28;cable-down
+                                   stream 12/2/29;cable-downstream 12/2/3;cable-downstream 12/2/30;cable-downstream 12/2/4;cable-down
+                                   stream 12/2/5;cable-downstream 12/2/6;cable-downstream 12/2/7;cable-downstream 12/2/8;cable-downst
+                                   ream 12/2/9
+ p:ModemScanner_downstream_hashKey timestamp=1747550790670, value=18ea89affd5886e6e542cb832c737162c68fb833;2028fb3b7b3ab737c6b1158213
+                                   f9bdb1597e40d3;27a5c10bf155e7fb803a47cfd65767c8d5f72e0b;38bf37c55b88aeff4eae03c1820282df7983f88a;3
+                                   9f649c4e53db95f7c643f0e4293218c797c8fb2;477d95bf9bcbeb03c6c6e197f2f963fec8e6fada;4b9286b159b0626f2
+                                   fb4b75effbd8ae477b3a4ad;4cf4a5b102073b17e8b12e9ea2feeca0034557ee;70b8238eee29e4cd3a9f9ea3164e8a611
+                                   c97033b;70e2afbfe91396746de5e162c2fed681374d3f07;72d7fbabda40945e6a69aab91962da773797e551;8df6c3d8
+                                   4abd7c1d039afd8de93e33038d1727ad;8eeeb56876ca2742f5f698699afc8cadb99e0fda;8fd39ab62fce50704a1b0a25
+                                   c003bfd8f41683a7;95a8e44cb5274f569ace3900e6cad5c08733cde0;975df499e36922905a8f885ef2a8c833987c9377
+                                   ;a32cd2da14411e47242118dd67a66cbfb9461c02;a964bfe75dc46a7b863f0e367bb6930dfd1d286a;b202d90a9310955
+                                   a5220fae51b2c4bcaddb17956;c236df74ce89df62bd0a7bb0ddf013520f8fb663;c53ba0080b5419a4c491049be467a8e
+                                   76b13026f;cb9ca0fa87f631bab95fa7ec79a9d87bf93180c1;ce194326744752d8b0e575bcce058968c4ef7c33;cecc69
+                                   1e460f7a1dd5882e279d0f2dbd34d79a36;d8a0db01d6a0cb4098b3376bdf383849223b329d;e2f553c065d0a7bc376d76
+                                   960b6a66e6c1c8a5c2;e36c851c4a275a346a44a4973ec211e97b617bf3;e6c507efa49fd99f2b35521f22b1fc784d2a39
+                                   ba;e76d51cf6f4a79e3d6227a59ba08461fb66ac8db;eed68a0d47b3efe99121297ea67bbca840b942a0;f7c3237230863
+                                   9e56f199a04e4d7e916c7768eac
+ p:ModemScanner_enabled            timestamp=1747550790670, value=1
+ p:ModemScanner_entityType         timestamp=1747573289694, value=CableModem
+ p:ModemScanner_fbcCapable         timestamp=1747550790670, value=true
+ p:ModemScanner_fbcEnabled         timestamp=1747550790670, value=true
+ p:ModemScanner_hwVersion          timestamp=1747550790670, value=1.2
+ p:ModemScanner_interface          timestamp=1747550790670, value=cable-upstream 1/1/4.0;cable-upstream 1/1/5.0;cable-upstream 1/1/6.
+                                   0;cable-upstream 1/1/7.0
+ p:ModemScanner_interface_hashKey  timestamp=1747550790670, value=0055464ed862cbaccd5bf5b9489e940830c617e3;079d685327e59183e8e2e4c66b
+                                   be675a417f6014;190f9ab243c21260adf530ea9200962f91a88ade;ab0bed77b94945660ad56d5105fc8bdca3c96532
+ p:ModemScanner_ip                 timestamp=1747573289694, value=
+ p:ModemScanner_ipv6Address        timestamp=1747573289694, value=2605:a000:c02:f5:817c:43df:2be2:417c
+ p:ModemScanner_macDomain          timestamp=1747550790670, value=cable-mac 3
+ p:ModemScanner_macDomain_hashKey  timestamp=1747550790670, value=68052e03894072595e8db049c9e5312314d243b8
+ p:ModemScanner_make               timestamp=1747550790670, value=Sercomm
+ p:ModemScanner_model              timestamp=1747550790670, value=ES2251
+ p:ModemScanner_online             timestamp=1747573298997, value=1
+ p:ModemScanner_online_timestamp   timestamp=1747573298997, value=1747573271
+ p:ModemScanner_poller             timestamp=1747573289694, value=codcoh-clmk-scope-poller-25
+ p:ModemScanner_primary_upstream   timestamp=1747550790670, value=190f9ab243c21260adf530ea9200962f91a88ade
+ p:ModemScanner_serial             timestamp=1747550790670, value=2137CVXP25647
+ p:ModemScanner_sgId               timestamp=1747550790670, value=3
+ p:ModemScanner_swVersion          timestamp=1747550790670, value=01.06.66-UNI-C3R
+ p:ModemScanner_tftpserver         timestamp=1747550790670, value=0.0.0.0
+ p:ModemScanner_uptime             timestamp=1747550790670, value=1.0212198e+07
+1 row(s)
+Took 0.0783 seconds
+
+2 CPE
+
+COLUMN                             CELL
+ p:Billing_LOB_DATA                timestamp=1747574568636, value=1
+ p:Billing_LOB_VIDEO               timestamp=1747574568636, value=1
+ p:Billing_account                 timestamp=1747574568636, value=8337100302067751
+ p:Billing_account_hashKey         timestamp=1747574568636, value=c803f1ec91ece7237a013f6d5a24def3db854722
+ p:Billing_area                    timestamp=1747574568636, value=cfl
+ p:Billing_area_hashKey            timestamp=1747574568636, value=59492d07730fdba913adc861699f1289b0c406da
+ p:Billing_cdf_hashKey             timestamp=1747574568636, value=936d7f3f9a4fff6dd22db10ceb53802b0e497316
+ p:Billing_custOwned               timestamp=1747574568636, value=0
+ p:Billing_division                timestamp=1747574568636, value=aab
+ p:Billing_division_hashKey        timestamp=1747574568636, value=db675607b8c9292f6e044cc8417849ae1e014fae
+ p:Billing_enabled                 timestamp=1747574568636, value=1
+ p:Billing_enterprise              timestamp=1747574568636, value=bhn
+ p:Billing_enterprise_hashKey      timestamp=1747574568636, value=4b6b0896eeb15286930012f4ebc2805fc6f01f61
+ p:Billing_entityType              timestamp=1747574568636, value=CPE
+ p:Billing_equipmentType           timestamp=1747574568636, value=AdsgSetTopBox
+ p:Billing_equipment_hashKey       timestamp=1747574568636, value=085cdc9fc8eee1c1c9a5613bbe0c2d15265d8759
+ p:Billing_hub                     timestamp=1747574568636, value=08
+ p:Billing_hub_hashKey             timestamp=1747574568636, value=27398503e6b6174ef4b5c54125fb3ba87c081cf6
+ p:Billing_importComplete          timestamp=1747574568636, value=1
+ p:Billing_installDate             timestamp=1747574568636, value=27-OCT-23
+ p:Billing_make                    timestamp=1747574568636, value=Humax
+ p:Billing_market                  timestamp=1747574568636, value=fla
+ p:Billing_market_hashKey          timestamp=1747574568636, value=4ec9a686f673bc9140444d765a7df81dda5d77b5
+ p:Billing_mgtArea_hashKey         timestamp=1747574568636, value=d25de32147bf1392950f4f5f20aede655deaf6fb
+ p:Billing_mgtArea_name            timestamp=1747574568636, value=efl
+ p:Billing_model                   timestamp=1747574568636, value=spectrum110-he
+ p:Billing_node                    timestamp=1747574568636, value=08CC131
+ p:Billing_node_hashKey            timestamp=1747574568636, value=0ccc6142c21fb677666702a1add024285c293619
+ p:Billing_region_hashKey          timestamp=1747574568636, value=d43c44d9dd1a17e098fd6512557ad5ce441db5e9
+ p:Billing_region_name             timestamp=1747574568636, value=sou
+ p:Billing_serial                  timestamp=1747574568636, value=CH08CDB86VCV
+ p:Billing_sys                     timestamp=1747574568636, value=8337
+ p:Billing_sysActual               timestamp=1747574568636, value=8337
+ p:ElasticSearch_hash              timestamp=1743599823445, value=\x19\xB8\x5Cu\x17\x8D\xFE\xE3\xF3\x1E\x1F\xF2<\x1ENT\xD9\xAF\xD6\xB
+                                   4
+ p:Entity_key                      timestamp=1747574568636, value=ch08cdb86vcv
+ p:Entity_keyAttr                  timestamp=1747574568636, value=serial
+ p:Entity_scope                    timestamp=1747574568636, value=c803f1ec91ece7237a013f6d5a24def3db854722
+ 
+ 3. COLUMN                             CELL
+ p:Billing_LOB                     timestamp=1747568954706, value=LOB_PHONE
+ p:Billing_LOB_PHONE               timestamp=1747568954706, value=1
+ p:Billing_account                 timestamp=1747568954706, value=8448200170221260
+ p:Billing_account_hashKey         timestamp=1747568954706, value=b5e71c4366cb23d7d6d6e3011fcba07629baee4e
+ p:Billing_addressable             timestamp=1747568954706, value=1
+ p:Billing_area                    timestamp=1747568954706, value=scn
+ p:Billing_area_hashKey            timestamp=1747568954706, value=b7add68c1248f4a4894bca3cf9f931e120fbde70
+ p:Billing_cdf_hashKey             timestamp=1747568954706, value=2ae209ee7fd2a198321c9a35011a06221fe1956b
+ p:Billing_custOwned               timestamp=1747568954706, value=0
+ p:Billing_division                timestamp=1747568954706, value=sfv
+ p:Billing_division_hashKey        timestamp=1747568954706, value=edd8b913ef86dad0e53bd25f5157ae9f828ea718
+ p:Billing_enabled                 timestamp=1747568954706, value=1
+ p:Billing_enterprise              timestamp=1747568954706, value=twc
+ p:Billing_enterprise_hashKey      timestamp=1747568954706, value=ced228b4c1b1713ddeb6e16f8394da3ee8a8b288
+ p:Billing_entityType              timestamp=1747568954706, value=MTA
+ p:Billing_equipmentType           timestamp=1747568954706, value=MTA
+ p:Billing_equipment_hashKey       timestamp=1747568954706, value=aeb1a4c24756b4a5e2e545b168339bdfeddad556
+ p:Billing_hub                     timestamp=1747568954706, value=SP
+ p:Billing_hub_hashKey             timestamp=1747568954706, value=aa7de12496522a3946b5e63d42930fbc7ba91559
+ p:Billing_importComplete          timestamp=1747568954706, value=1
+ p:Billing_installDate             timestamp=1747568954706, value=17-MAY-25
+ p:Billing_mac                     timestamp=1747568954706, value=840B7C1077AD
+ p:Billing_make                    timestamp=1747568954706, value=Hitron
+ p:Billing_market                  timestamp=1747568954706, value=pwe
+ p:Billing_market_hashKey          timestamp=1747568954706, value=a9a54f2e4421834256b2ed94ac0ffe8b34765ddd
+ p:Billing_mgtArea_hashKey         timestamp=1747568954706, value=264beb9b5126ec2c9819434431cbc8e69b2fd3f1
+ p:Billing_mgtArea_name            timestamp=1747568954706, value=scn
+ p:Billing_model                   timestamp=1747568954706, value=e31n2v1
+ p:Billing_node                    timestamp=1747568954706, value=FP031X
+ p:Billing_node_hashKey            timestamp=1747568954706, value=f316a1a5c31493871f06acfb8af85a1e9bc9a466
+ p:Billing_port                    timestamp=1747568954706, value=VU84
+ p:Billing_region_hashKey          timestamp=1747568954706, value=7077ae967403b5ec77362f2d5e90b89959ae5140
+ p:Billing_region_name             timestamp=1747568954706, value=wst
+ p:Billing_serial                  timestamp=1747568954706, value=252198146701
+ p:Billing_sys                     timestamp=1747568954706, value=8448
+ p:Billing_sysActual               timestamp=1747568954706, value=8448
+ p:Dirty_entityType                timestamp=1747540022647, value=MTA
+ p:Dirty_ip                        timestamp=1747540022647, value=0.0.0.0
+ p:Dirty_mac                       timestamp=1747540022647, value=840b7c1077ad
+ p:Dirty_poller                    timestamp=1747540022647, value=irveca-scope-p-app-l-15
+ p:Entity_key                      timestamp=1747568954706, value=840b7c1077ad
+ p:Entity_keyAttr                  timestamp=1747568954706, value=mac
+ p:Entity_scope                    timestamp=1747568954706, value=a81d99414a6ce3c68438699293f02317f5fbeb64
+ p:MDA_account                     timestamp=1747525650534, value=8448200170221260
+ p:MDA_account_hashKey             timestamp=1747525650534, value=b5e71c4366cb23d7d6d6e3011fcba07629baee4e
+ p:MDA_cdf_hashKey                 timestamp=1747525650534, value=2ae209ee7fd2a198321c9a35011a06221fe1956b
+ p:MDA_division                    timestamp=1747525650534, value=sfv
+ p:MDA_division_hashKey            timestamp=1747525650534, value=edd8b913ef86dad0e53bd25f5157ae9f828ea718
+ p:MDA_enabled                     timestamp=1747525650534, value=1
+ p:MDA_enterprise                  timestamp=1747525650534, value=twc
+ p:MDA_enterprise_hashKey          timestamp=1747525650534, value=ced228b4c1b1713ddeb6e16f8394da3ee8a8b288
+ p:MDA_entityType                  timestamp=1747525650534, value=MTA
+ p:MDA_equip_hashKey               timestamp=1747525650534, value=aeb1a4c24756b4a5e2e545b168339bdfeddad556
+ p:MDA_equipmentType               timestamp=1747525650534, value=MTA
+ p:MDA_house_hashKey               timestamp=1747525650534, value=31488811dd86043cf4f17bbfdefa857f6246d29f
+ p:MDA_housenum                    timestamp=1747525650534, value=93015114100098
+ p:MDA_hub                         timestamp=1747525650534, value=SP
+ p:MDA_hub_hashKey                 timestamp=1747525650534, value=aa7de12496522a3946b5e63d42930fbc7ba91559
+ p:MDA_install                     timestamp=1747525650534, value=2025-05-17
+ p:MDA_macAddress                  timestamp=1747525650534, value=840B7C1077AD
+ p:MDA_make                        timestamp=1747525650534, value=Hitron
+ p:MDA_mgtArea_hashKey             timestamp=1747525650534, value=264beb9b5126ec2c9819434431cbc8e69b2fd3f1
+ p:MDA_mgtArea_name                timestamp=1747525650534, value=scn
+ p:MDA_model                       timestamp=1747525650534, value=e31n2v1
+ p:MDA_node                        timestamp=1747525650534, value=FP031X
+ p:MDA_node_hashKey                timestamp=1747525650534, value=f316a1a5c31493871f06acfb8af85a1e9bc9a466
+ p:MDA_port                        timestamp=1747525650534, value=VV84
+ p:MDA_region                      timestamp=1747525650534, value=wst
+ p:MDA_region_hashKey              timestamp=1747525650534, value=7077ae967403b5ec77362f2d5e90b89959ae5140
+ p:MDA_serial                      timestamp=1747525650534, value=252198146701
+ p:MDA_sys                         timestamp=1747525650534, value=8448
+ p:MDA_timestamp                   timestamp=1747525650534, value=2025-05-17T17:42:06.283
+ p:ModemScanner_cableModem_hashKey timestamp=1747540715457, value=04f4c4e55c529dbbca09e4e6c100fd2e2d8664f2
+ p:ModemScanner_cmts_hashKey       timestamp=1747540715457, value=437162f65bb15dc3749eb205a0bec5b27c9bfcdb
+ p:ModemScanner_enabled            timestamp=1747540715457, value=1
+ p:ModemScanner_entityType         timestamp=1747540715457, value=MTA
+ p:ModemScanner_ip                 timestamp=1747540715457, value=0.0.0.0
+ p:ModemScanner_make               timestamp=1747540715457, value=Hitron
+ p:ModemScanner_model              timestamp=1747540715457, value=E31N2V1
+ p:ModemScanner_poller             timestamp=1747540715457, value=irveca-scope-p-app-l-15
+ p:ModemScanner_serial             timestamp=1747540715457, value=252198146701
+ 
+ 3 MTA
+ 
+ COLUMN                             CELL
+ p:Billing_LOB                     timestamp=1747568954706, value=LOB_PHONE
+ p:Billing_LOB_PHONE               timestamp=1747568954706, value=1
+ p:Billing_account                 timestamp=1747568954706, value=8448200170221260
+ p:Billing_account_hashKey         timestamp=1747568954706, value=b5e71c4366cb23d7d6d6e3011fcba07629baee4e
+ p:Billing_addressable             timestamp=1747568954706, value=1
+ p:Billing_area                    timestamp=1747568954706, value=scn
+ p:Billing_area_hashKey            timestamp=1747568954706, value=b7add68c1248f4a4894bca3cf9f931e120fbde70
+ p:Billing_cdf_hashKey             timestamp=1747568954706, value=2ae209ee7fd2a198321c9a35011a06221fe1956b
+ p:Billing_custOwned               timestamp=1747568954706, value=0
+ p:Billing_division                timestamp=1747568954706, value=sfv
+ p:Billing_division_hashKey        timestamp=1747568954706, value=edd8b913ef86dad0e53bd25f5157ae9f828ea718
+ p:Billing_enabled                 timestamp=1747568954706, value=1
+ p:Billing_enterprise              timestamp=1747568954706, value=twc
+ p:Billing_enterprise_hashKey      timestamp=1747568954706, value=ced228b4c1b1713ddeb6e16f8394da3ee8a8b288
+ p:Billing_entityType              timestamp=1747568954706, value=MTA
+ p:Billing_equipmentType           timestamp=1747568954706, value=MTA
+ p:Billing_equipment_hashKey       timestamp=1747568954706, value=aeb1a4c24756b4a5e2e545b168339bdfeddad556
+ p:Billing_hub                     timestamp=1747568954706, value=SP
+ p:Billing_hub_hashKey             timestamp=1747568954706, value=aa7de12496522a3946b5e63d42930fbc7ba91559
+ p:Billing_importComplete          timestamp=1747568954706, value=1
+ p:Billing_installDate             timestamp=1747568954706, value=17-MAY-25
+ p:Billing_mac                     timestamp=1747568954706, value=840B7C1077AD
+ p:Billing_make                    timestamp=1747568954706, value=Hitron
+ p:Billing_market                  timestamp=1747568954706, value=pwe
+ p:Billing_market_hashKey          timestamp=1747568954706, value=a9a54f2e4421834256b2ed94ac0ffe8b34765ddd
+ p:Billing_mgtArea_hashKey         timestamp=1747568954706, value=264beb9b5126ec2c9819434431cbc8e69b2fd3f1
+ p:Billing_mgtArea_name            timestamp=1747568954706, value=scn
+ p:Billing_model                   timestamp=1747568954706, value=e31n2v1
+ p:Billing_node                    timestamp=1747568954706, value=FP031X
+ p:Billing_node_hashKey            timestamp=1747568954706, value=f316a1a5c31493871f06acfb8af85a1e9bc9a466
+ p:Billing_port                    timestamp=1747568954706, value=VU84
+ p:Billing_region_hashKey          timestamp=1747568954706, value=7077ae967403b5ec77362f2d5e90b89959ae5140
+ p:Billing_region_name             timestamp=1747568954706, value=wst
+ p:Billing_serial                  timestamp=1747568954706, value=252198146701
+ p:Billing_sys                     timestamp=1747568954706, value=8448
+ p:Billing_sysActual               timestamp=1747568954706, value=8448
+ p:Dirty_entityType                timestamp=1747540022647, value=MTA
+ p:Dirty_ip                        timestamp=1747540022647, value=0.0.0.0
+ p:Dirty_mac                       timestamp=1747540022647, value=840b7c1077ad
+ p:Dirty_poller                    timestamp=1747540022647, value=irveca-scope-p-app-l-15
+ p:Entity_key                      timestamp=1747568954706, value=840b7c1077ad
+ p:Entity_keyAttr                  timestamp=1747568954706, value=mac
+ p:Entity_scope                    timestamp=1747568954706, value=a81d99414a6ce3c68438699293f02317f5fbeb64
+ p:MDA_account                     timestamp=1747525650534, value=8448200170221260
+ p:MDA_account_hashKey             timestamp=1747525650534, value=b5e71c4366cb23d7d6d6e3011fcba07629baee4e
+ p:MDA_cdf_hashKey                 timestamp=1747525650534, value=2ae209ee7fd2a198321c9a35011a06221fe1956b
+ p:MDA_division                    timestamp=1747525650534, value=sfv
+ p:MDA_division_hashKey            timestamp=1747525650534, value=edd8b913ef86dad0e53bd25f5157ae9f828ea718
+ p:MDA_enabled                     timestamp=1747525650534, value=1
+ p:MDA_enterprise                  timestamp=1747525650534, value=twc
+ p:MDA_enterprise_hashKey          timestamp=1747525650534, value=ced228b4c1b1713ddeb6e16f8394da3ee8a8b288
+ p:MDA_entityType                  timestamp=1747525650534, value=MTA
+ p:MDA_equip_hashKey               timestamp=1747525650534, value=aeb1a4c24756b4a5e2e545b168339bdfeddad556
+ p:MDA_equipmentType               timestamp=1747525650534, value=MTA
+ p:MDA_house_hashKey               timestamp=1747525650534, value=31488811dd86043cf4f17bbfdefa857f6246d29f
+ p:MDA_housenum                    timestamp=1747525650534, value=93015114100098
+ p:MDA_hub                         timestamp=1747525650534, value=SP
+ p:MDA_hub_hashKey                 timestamp=1747525650534, value=aa7de12496522a3946b5e63d42930fbc7ba91559
+ p:MDA_install                     timestamp=1747525650534, value=2025-05-17
+ p:MDA_macAddress                  timestamp=1747525650534, value=840B7C1077AD
+ p:MDA_make                        timestamp=1747525650534, value=Hitron
+ p:MDA_mgtArea_hashKey             timestamp=1747525650534, value=264beb9b5126ec2c9819434431cbc8e69b2fd3f1
+ p:MDA_mgtArea_name                timestamp=1747525650534, value=scn
+ p:MDA_model                       timestamp=1747525650534, value=e31n2v1
+ p:MDA_node                        timestamp=1747525650534, value=FP031X
+ p:MDA_node_hashKey                timestamp=1747525650534, value=f316a1a5c31493871f06acfb8af85a1e9bc9a466
+ p:MDA_port                        timestamp=1747525650534, value=VV84
+ p:MDA_region                      timestamp=1747525650534, value=wst
+ p:MDA_region_hashKey              timestamp=1747525650534, value=7077ae967403b5ec77362f2d5e90b89959ae5140
+ p:MDA_serial                      timestamp=1747525650534, value=252198146701
+ p:MDA_sys                         timestamp=1747525650534, value=8448
+ p:MDA_timestamp                   timestamp=1747525650534, value=2025-05-17T17:42:06.283
+ p:ModemScanner_cableModem_hashKey timestamp=1747540715457, value=04f4c4e55c529dbbca09e4e6c100fd2e2d8664f2
+ p:ModemScanner_cmts_hashKey       timestamp=1747540715457, value=437162f65bb15dc3749eb205a0bec5b27c9bfcdb
+ p:ModemScanner_enabled            timestamp=1747540715457, value=1
+ p:ModemScanner_entityType         timestamp=1747540715457, value=MTA
+ p:ModemScanner_ip                 timestamp=1747540715457, value=0.0.0.0
+ p:ModemScanner_make               timestamp=1747540715457, value=Hitron
+ p:ModemScanner_model              timestamp=1747540715457, value=E31N2V1
+ p:ModemScanner_poller             timestamp=1747540715457, value=irveca-scope-p-app-l-15
+ p:ModemScanner_serial             timestamp=1747540715457, value=252198146701
+ 
+ 4 Hub
+ 
+ COLUMN                             CELL
+ p:Agg_Billing_CPE_cnt_LOB_Data    timestamp=1747631359989, value=30308
+ p:Agg_Billing_CPE_cnt_LOB_Phone   timestamp=1747631359989, value=13257
+ p:Agg_Billing_CPE_cnt_LOB_Video   timestamp=1747631359989, value=7662
+ p:Agg_Billing_Commercial_Account  timestamp=1747631446943, value=1939
+ p:Agg_Billing_Residential_Account timestamp=1747631446943, value=12825
+ p:Agg_Billing_account_cnt_LOB_Dat timestamp=1747631446943, value=13893
+ a
+ p:Agg_Billing_account_cnt_LOB_Pho timestamp=1747631446943, value=12789
+ ne
+ p:Agg_Billing_account_cnt_LOB_Vid timestamp=1747631446943, value=4289
+ eo
+ p:Agg_Billing_combasicvideosub    timestamp=1747631461139, value=263
+ p:Agg_Billing_comhsdsub           timestamp=1747631446943, value=1675
+ p:Agg_Billing_comvideosub         timestamp=1747631446943, value=226
+ p:Agg_Billing_comvoicesub         timestamp=1747631446943, value=1482
+ p:Agg_Billing_resbasicvideosub    timestamp=1747631461139, value=607
+ p:Agg_Billing_reshsdsub           timestamp=1747631446943, value=12218
+ p:Agg_Billing_resvideosub         timestamp=1747631446943, value=4063
+ p:Agg_Billing_resvoicesub         timestamp=1747631446943, value=11307
+ p:Billing_area                    timestamp=1747627322944, value=stx
+ p:Billing_area_hashKey            timestamp=1747627322944, value=d0bfded590f0bbd4101f8dc7653abaf0c71b3611
+ p:Billing_cdf_hashKey             timestamp=1747627322944, value=7831998678afb3ac8e1345c924aa81c7766ad226
+ p:Billing_division                timestamp=1747627322944, value=sax
+ p:Billing_division_hashKey        timestamp=1747627322944, value=b7aa76ab34985d59a3aecf3a282fc20e6facaa23
+ p:Billing_enabled                 timestamp=1747627322944, value=1
+ p:Billing_enterprise              timestamp=1747627322944, value=twc
+ p:Billing_enterprise_hashKey      timestamp=1747627322944, value=ced228b4c1b1713ddeb6e16f8394da3ee8a8b288
+ p:Billing_entityType              timestamp=1747627322944, value=Hub
+ p:Billing_hubID                   timestamp=1747627322944, value=23
+ p:Billing_hub_name                timestamp=1747627322944, value=SENTINEL : 23
+ p:Billing_market                  timestamp=1747627322944, value=tex
+ p:Billing_market_hashKey          timestamp=1747627322944, value=f22ed961d89e860144898ca16a4c20e0308c2496
+ p:Billing_mgtArea_hashKey         timestamp=1747627322944, value=9c2f61f00e745feaac579ff776030d903767cc4d
+ p:Billing_mgtArea_name            timestamp=1747627322944, value=stx
+ p:Billing_old_hashKey             timestamp=1747627322944, value=7e367d092c9b03de5fd25d86e9431ca327a405ff
+ p:Billing_region_hashKey          timestamp=1747627322944, value=96f94158c934db511409639d7a6f935945c398da
+ p:Billing_region_name             timestamp=1747627322944, value=tex
+ p:Billing_sys                     timestamp=1747627322944, value=8260
+ p:Billing_sysActual               timestamp=1747627322944, value=8260
+ p:Derived_controller              timestamp=1747564472974, value=San Antonio
+ p:Derived_controllerid            timestamp=1747564472974, value=3436
+ p:Derived_geoLocation             timestamp=1747620135069, value=29.5583424302554,-98.4339661069185
+ p:Derived_latitude                timestamp=1747620135069, value=29.5583424302554
+ p:Derived_longitude               timestamp=1747620135069, value=-98.4339661069185
+ p:ElasticSearch_hash              timestamp=1743612665223, value=b\xEE\x85\x12\xA1\xA5%(\xEC\x09m|F\x9A\x10\xC0:s\x00E
+ p:Entity_key                      timestamp=1747627322944, value=snantx006
+ p:Entity_keyAttr                  timestamp=1747627322944, value=clli
+ p:Entity_scope                    timestamp=1747627322944, value=a81d99414a6ce3c68438699293f02317f5fbeb64
+ p:Remedy_city                     timestamp=1747555531093, value=San Antonio
+ p:Remedy_clli                     timestamp=1747555531093, value=SNAXTXFO
+ p:Remedy_divisionName             timestamp=1747555531093, value=Texas-Louisiana
+ p:Remedy_hubType                  timestamp=1747555531093, value=Primary Hub
+ p:Remedy_latitude                 timestamp=1747555531093, value=29.5390422
+ p:Remedy_longitude                timestamp=1747555531093, value=-98.44551
+ p:Remedy_marketName               timestamp=1747555531093, value=Texas
+ p:Remedy_mgtAreaName              timestamp=1747555531093, value=South Texas
+ p:Remedy_name                     timestamp=1747555531093, value=SENTINEL : 23
+ p:Remedy_regionName               timestamp=1747555531093, value=Texas-Louisiana
+ p:Remedy_state                    timestamp=1747555531093, value=TX
+ p:Remedy_street                   timestamp=1747555531093, value=10789 Sentinel Dr
+ p:Remedy_zip                      timestamp=1747555531093, value=78217
+ p:Scope_city                      timestamp=1540238098752, value=San Antonio
+ p:Scope_clli                      timestamp=1560872830286, value=SNAXTXFO
+ p:Scope_state                     timestamp=1540238098752, value=TX
+ p:Scope_street                    timestamp=1540238098752, value=10789 Sentinel Dr
+ p:Scope_zip                       timestamp=1540238098752, value=78217
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=709
+ ined_data_phone_offline
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=1692
+ ined_data_phone_oos
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=14596
+ ined_data_phone_total
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=710
+ ined_data_phone_video_offline
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=1698
+ ined_data_phone_video_oos
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=14577
+ ined_data_phone_video_total
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=713
+ ined_data_video_offline
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=1701
+ ined_data_video_oos
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=14584
+ ined_data_video_total
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=670
+ ined_phone_video_offline
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=1571
+ ined_phone_video_oos
+ p:Statistics_cnt_account_lob_comb timestamp=1747631377533, value=13630
+ ined_phone_video_total
+ p:Statistics_cnt_account_lob_data timestamp=1747631377533, value=63
+ _Commercial_offline
+ p:Statistics_cnt_account_lob_data timestamp=1747631377528, value=235
+ _Commercial_oos
+ p:Statistics_cnt_account_lob_data timestamp=1747631377533, value=1741
+ _Commercial_total
+ p:Statistics_cnt_account_lob_data timestamp=1747631377533, value=650
+ _Residential_offline
+ p:Statistics_cnt_account_lob_data timestamp=1747631377533, value=1455
+ _Residential_oos
+ p:Statistics_cnt_account_lob_data timestamp=1747631377533, value=12788
+ _Residential_total
+ p:Statistics_cnt_account_lob_data timestamp=1747631377533, value=721
+ _offline
+ p:Statistics_cnt_account_lob_data timestamp=1747631377533, value=1706
+ _oos
+ p:Statistics_cnt_account_lob_data timestamp=1747631377533, value=14672
+ _total
+ p:Statistics_cnt_account_lob_phon timestamp=1747631377533, value=55
+ e_Commercial_offline
+ p:Statistics_cnt_account_lob_phon timestamp=1747631377533, value=191
+ e_Commercial_oos
+ p:Statistics_cnt_account_lob_phon timestamp=1747631377533, value=1500
+ e_Commercial_total
+ p:Statistics_cnt_account_lob_phon timestamp=1747631377533, value=646
+ e_Residential_offline
+ p:Statistics_cnt_account_lob_phon timestamp=1747631377533, value=1187
+ e_Residential_oos
+ p:Statistics_cnt_account_lob_phon timestamp=1747631377533, value=11663
+ e_Residential_total
+ p:Statistics_cnt_account_lob_phon timestamp=1747631377533, value=705
+ e_offline
+ p:Statistics_cnt_account_lob_phon timestamp=1747631377533, value=1379
+ e_oos
+ p:Statistics_cnt_account_lob_phon timestamp=1747631377533, value=13201
+ e_total
+ p:Statistics_cnt_account_lob_vide timestamp=1747631377533, value=8
+ o_Commercial_offline
+ p:Statistics_cnt_account_lob_vide timestamp=1747631377528, value=23
+ o_Commercial_oos
+ p:Statistics_cnt_account_lob_vide timestamp=1747631377533, value=249
+ o_Commercial_total
+ p:Statistics_cnt_account_lob_vide timestamp=1747631377533, value=151
+ o_Residential_offline
+ p:Statistics_cnt_account_lob_vide timestamp=1747631377533, value=341
+ o_Residential_oos
+ p:Statistics_cnt_account_lob_vide timestamp=1747631377533, value=3658
+ o_Residential_total
+ p:Statistics_cnt_account_lob_vide timestamp=1747631377533, value=159
+ o_offline
+ p:Statistics_cnt_account_lob_vide timestamp=1747631377533, value=364
+ o_oos
+ p:Statistics_cnt_account_lob_vide timestamp=1747631377528, value=3908
+ o_total
+ p:Statistics_cnt_cpe_lob_data_off timestamp=1747631377533, value=1149
+ line
+ p:Statistics_cnt_cpe_lob_data_oos timestamp=1747631377528, value=1984
+ p:Statistics_cnt_cpe_lob_data_tot timestamp=1747631377533, value=22830
+ al
+ p:Statistics_cnt_cpe_lob_phone_of timestamp=1747631377533, value=713
+ fline
+ p:Statistics_cnt_cpe_lob_phone_oo timestamp=1747631377533, value=1403
+ s
+ p:Statistics_cnt_cpe_lob_phone_to timestamp=1747631377533, value=13721
+ tal
+ p:Statistics_cnt_cpe_lob_video_of timestamp=1747631377533, value=376
+ fline
+ p:Statistics_cnt_cpe_lob_video_oo timestamp=1747631377533, value=477
+ s
+ p:Statistics_cnt_cpe_lob_video_to timestamp=1747631377533, value=7541
+ tal
+ p:Statistics_cnt_customerType_Com timestamp=1747631377533, value=61
+ mercial_offline
+ p:Statistics_cnt_customerType_Com timestamp=1747631377533, value=236
+ mercial_oos
+ p:Statistics_cnt_customerType_Com timestamp=1747631377533, value=1752
+ mercial_total
+ p:Statistics_cnt_customerType_Res timestamp=1747631377533, value=639
+ idential_offline
+ p:Statistics_cnt_customerType_Res timestamp=1747631377533, value=1461
+ idential_oos
+ p:Statistics_cnt_customerType_Res timestamp=1747631377533, value=12845
+ idential_total
+ p:Statistics_cnt_entityType_AWG_o timestamp=1747631377533, value=0
+ ffline
+ p:Statistics_cnt_entityType_AWG_o timestamp=1747631377533, value=0
+ os
+ p:Statistics_cnt_entityType_AWG_t timestamp=1747631377533, value=1524
+ otal
+ p:Statistics_cnt_entityType_Cable timestamp=1747631377533, value=1141
+ Modem_offline
+ p:Statistics_cnt_entityType_Cable timestamp=1747631377533, value=2004
+ Modem_oos
+ p:Statistics_cnt_entityType_Cable timestamp=1747631377533, value=22781
+ Modem_total
+ p:Statistics_cnt_entityType_MTA_o timestamp=1747631377533, value=0
+ ffline
+ p:Statistics_cnt_entityType_MTA_o timestamp=1747631377533, value=0
+ os
+ p:Statistics_cnt_entityType_MTA_t timestamp=1747631377533, value=13838
+ otal
+ p:Statistics_cnt_entityType_ONU_o timestamp=1747631377533, value=0
+ ffline
+ p:Statistics_cnt_entityType_ONU_o timestamp=1747631377533, value=0
+ os
+ p:Statistics_cnt_entityType_ONU_t timestamp=1747631377533, value=8
+ otal
+ p:Statistics_cnt_entityType_SetTo timestamp=1747631377533, value=0
+ pBox_offline
+ p:Statistics_cnt_entityType_SetTo timestamp=1747631377533, value=0
+ pBox_oos
+ p:Statistics_cnt_entityType_SetTo timestamp=1747631377533, value=9152
+ pBox_total
+ p:Statistics_cnt_equipmentType_AW timestamp=1747631377533, value=80
+ G_offline
+ p:Statistics_cnt_equipmentType_AW timestamp=1747631377533, value=101
+ G_oos
+ p:Statistics_cnt_equipmentType_AW timestamp=1747631377533, value=3948
+ G_total
+ p:Statistics_cnt_equipmentType_Ad timestamp=1747631377533, value=293
+ sgSetTopBox_offline
+ p:Statistics_cnt_equipmentType_Ad timestamp=1747631377533, value=341
+ sgSetTopBox_oos
+ p:Statistics_cnt_equipmentType_Ad timestamp=1747631377533, value=12314
+ sgSetTopBox_total
+ p:Statistics_cnt_equipmentType_Ca timestamp=1747631377533, value=22
+ bleModem_offline
+ p:Statistics_cnt_equipmentType_Ca timestamp=1747631377533, value=69
+ bleModem_oos
+ p:Statistics_cnt_equipmentType_Ca timestamp=1747631377533, value=849
+ bleModem_total
+ p:Statistics_cnt_equipmentType_Ho timestamp=1747631377533, value=1
+ tspotAP_offline
+ p:Statistics_cnt_equipmentType_Ho timestamp=1747631377533, value=4
+ tspotAP_oos
+ p:Statistics_cnt_equipmentType_Ho timestamp=1747631377533, value=72
+ tspotAP_total
+ p:Statistics_cnt_equipmentType_Hy timestamp=1747631377533, value=14
+ dra_offline
+ p:Statistics_cnt_equipmentType_Hy timestamp=1747631377533, value=36
+ dra_oos
+ p:Statistics_cnt_equipmentType_Hy timestamp=1747631377533, value=1258
+ dra_total
+ p:Statistics_cnt_equipmentType_MT timestamp=1747631377533, value=659
+ A_offline
+ p:Statistics_cnt_equipmentType_MT timestamp=1747631377533, value=1350
+ A_oos
+ p:Statistics_cnt_equipmentType_MT timestamp=1747631377533, value=25609
+ A_total
+ p:Statistics_cnt_equipmentType_ON timestamp=1747631377533, value=0
+ U_offline
+ p:Statistics_cnt_equipmentType_ON timestamp=1747631377533, value=0
+ U_oos
+ p:Statistics_cnt_equipmentType_ON timestamp=1747631377533, value=8
+ U_total
+ p:Statistics_cnt_equipmentType_Ro timestamp=1747631377528, value=0
+ uter_offline
+ p:Statistics_cnt_equipmentType_Ro timestamp=1747631377533, value=0
+ uter_oos
+ p:Statistics_cnt_equipmentType_Ro timestamp=1747631377533, value=17
+ uter_total
+ p:Statistics_cnt_equipmentType_Se timestamp=1747631377533, value=75
+ tTopBox_offline
+ p:Statistics_cnt_equipmentType_Se timestamp=1747631377533, value=100
+ tTopBox_oos
+ p:Statistics_cnt_equipmentType_Se timestamp=1747631377533, value=3072
+ tTopBox_total
+ p:Statistics_cnt_equipmentType_To timestamp=1747631377533, value=0
+ uchScreen_offline
+ p:Statistics_cnt_equipmentType_To timestamp=1747631377533, value=0
+ uchScreen_oos
+ p:Statistics_cnt_equipmentType_To timestamp=1747631377533, value=1
+ uchScreen_total
+ p:Statistics_cnt_equipmentType_Tu timestamp=1747631377533, value=0
+ ningAdapter_offline
+ p:Statistics_cnt_equipmentType_Tu timestamp=1747631377533, value=0
+ ningAdapter_oos
+ p:Statistics_cnt_equipmentType_Tu timestamp=1747631377533, value=30
+ ningAdapter_total
+ p:Statistics_cnt_equipmentType_Un timestamp=1747631377533, value=0
+ known_offline
+ p:Statistics_cnt_equipmentType_Un timestamp=1747631377533, value=5
+ known_oos
+ p:Statistics_cnt_equipmentType_Un timestamp=1747631377533, value=72
+ known_total

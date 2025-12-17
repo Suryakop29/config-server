@@ -1,0 +1,104 @@
+
+
+https://gist.github.com/sjednac/cf2f72590117b37d017fe17c62781df1   --emr airflow
+
+
+https://imsharadmishra.medium.com/different-ways-to-use-kubernetes-pod-operator-in-airflow-74e655221386
+
+
+yarn application -list
+
+ 
+[Friday 14:45] Palli, Sridhar
+sudo systemctl restart hadoop-yarn-resourcemanager
+
+ 
+[Friday 14:47] Palli, Sridhar
+sudo systemctl restart hadoop-yarn-resourcemanager
+sudo systemctl restart hadoop-yarn-nodemanager
+sudo systemctl status hadoop-yarn-resourcemanager
+
+sudo systemctl status hadoop-yarn-nodemanager
+
+•	aws ssm start-session --target i-0b65dbb57f915acbe --region us-east-1 --profile dev
+
+set AWS_PROFILE=developer
+aws ssm start-session --target "i-0484ab4bd334f1c71" --region us-east-1 --profile dev
+
+
+    // To print the result start
+
+    public void printResult(Result result) {
+        // Iterate over all cells in the result
+        for (Cell cell : result.listCells()) {
+            // Extract row key, column family, column qualifier, and value
+            byte[] rowKey = result.getRow();
+            byte[] family = CellUtil.cloneFamily(cell);
+            byte[] qualifier = CellUtil.cloneQualifier(cell);
+            byte[] value = CellUtil.cloneValue(cell);
+
+            // Convert bytes to strings for easier readability
+            String rowKeyStr = Bytes.toString(rowKey);
+            String familyStr = Bytes.toString(family);
+            String qualifierStr = Bytes.toString(qualifier);
+            String valueStr = Bytes.toString(value);
+
+            // Print out the details
+            /*System.out.println("$$$$$$Row Key: " + rowKeyStr);
+            System.out.println("$$$$$$Column Family: " + familyStr);
+            System.out.println("$$$$$Qualifier: " + qualifierStr);
+            System.out.println("$$$$$$Value: " + valueStr);
+            System.out.println("--------------------");*/
+            FSDataOutputStream outStream;
+            try {
+                Configuration conf = new Configuration();
+                conf.addResource(new Path("/etc/hbase/conf/core-site.xml"));
+                conf.addResource(new Path("/etc/hbase/conf/hdfs-site.xml"));
+                FileSystem fs = FileSystem.get(URI.create("hdfs://ip-10-210-78-211.ec2.internal:8020/nameservice1/scripts/entityTypes"), conf);
+                outStream = fs.create(new Path("hdfs://ip-10-210-78-211.ec2.internal:8020/nameservice1/scripts/entityTypes/test.log"));
+
+                outStream.writeBytes(String.join(", ", rowKeyStr + "1" + familyStr + "2" + qualifierStr + "3" + valueStr));
+                outStream.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+    }
+
+
+    // end to print the result
+
+
+ 
+ 
+ 
+ 
+ 
+   <name>yarn.resourcemanager.webapp.address</name>
+    <value>nce-cloudera-mstr-01.scope.charter.com:8088</value>
+
+nce-cloudera-mstr-01.scope.charter.com:11000
+
+http://nce-cloudera-util-03.scope.charter.com:11000/oozie/
+ 
+http://nce-cloudera-mstr-01.scope.charter.com:8088/cluster
+ 
+ 
+ 
+ https://medium.com/@james-coffey/orchestration-and-automation-with-managed-apache-airflow-mwaa-40f2587769ef
+ 
+http://hue.scope.charter.com:8889/hue/home/
+
+User -- npatel
+
+Password --- Hu34C@pG3m
+
+ssh P3251994@nce-cloudera-mstr-01.scope.charter.com
+
+to see container logs --
+
+ kubectl exec -it opp-69d97575b4-7jv9j -n rsv -- /bin/sh
+ cd /var/log/scope
+ ls -la
+
