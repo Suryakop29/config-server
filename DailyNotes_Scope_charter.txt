@@ -1,0 +1,73 @@
+
+
+Hi Bhatnagar, Gargee,
+ 
+I have created below role -- use this role for testing your Gitlab CICD pieline cration and testing
+CICD for INFRA IAM Role -- cicd_infra_iam_role = "arn:aws:iam::851725287825:role/inteldev-cicd-infra-svc-role-dev"
+ 
+Objective
+Refer to postgresql infra repo, it was deployed to DEV using this role
+Create Gitlab CICD yml file for.... 
+validate
+plan
+apply to "DEV" only
+destroy from "DEV" only -- this should be overwride parameter that Developer need to conciously provide while kicking off pipeline MANNUALLY -- NO destroy on merge to "dev" branch or "main" branch
+feature --> merge to --> develop branch --> trigger above pipeline, deploy till "DEV" and stop, no further deployment
+Mannual "destroy" from develop branch till "DEV" env
+develop --> merge to "main" --> trigger deploy to "DEV" --> this can continue to --> deploy to UAT on manual review and approval --> can continue to PROD on manual review and approval
+
+
+
+Can you check
+ 
+Do we need both below for our application architecture or we just need ALB in EKS cluster
+ 
+This is Stand alone ALB that will be sitting outside EKS cluster -- DO we need this on top of what we will have ALB in EKS as below?
+https://registry.terraform.io/modules/terraform-aws-modules/alb/aws/latest
+ 
+This is ALB that will be sitting inside EKS cluster -- This we definately need, we will also need some kind of routing for secondery IP address range that we have now.
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb
+
+
+
+hbase:005:0> describe 'entity-charter'
+Table entity-charter is ENABLED
+entity-charter, {TABLE_ATTRIBUTES => {coprocessor$1 => 'hdfs:///opt/vendor/elastic-coprocessor-3.2.0.jar|com.charter.hbase.coprocessor.ElasticCoprocessor|'}}
+COLUMN FAMILIES DESCRIPTION
+{NAME => 'p', VERSIONS => '1', EVICT_BLOCKS_ON_CLOSE => 'false', NEW_VERSION_BEHAVIOR => 'false', KEEP_DELETED_CELLS => 'FALSE', CACHE_DATA_ON_WRITE => 'false', DATA_BLOCK_ENCODING => 'NONE', TTL => 'FOREVER',
+MIN_VERSIONS => '0', REPLICATION_SCOPE => '1', BLOOMFILTER => 'ROW', CACHE_INDEX_ON_WRITE => 'false', IN_MEMORY => 'false', CACHE_BLOOMS_ON_WRITE => 'false', PREFETCH_BLOCKS_ON_OPEN => 'false', COMPRESSION => '
+LZO', BLOCKCACHE => 'true', BLOCKSIZE => '65536'}
+
+Hi Barge, Abhimanyu,
+I have created ECR registry in DEV AWS account, you can use it for your testing with Airflow + EKS
+ 
+851725287825.dkr.ecr.us-east-1.amazonaws.com/inteldev-ecr-repository-dev
+
+
+
+Hi Barge, Abhimanyu, with help of Chhablani, Nitin, 
+
+set up AWS profile based authentication in your VDI, validate that it is working and than try below step
+ 
+Below assumes that you have completed above pre-requisites and your AWS profile name is "dev" for Charter AWS DEV account and your docker image name is "my-docker-image"
+ 
+aws ecr get-login-password --region us-east-1 --profile dev | docker login --username AWS --password-stdin 851725287825.dkr.ecr.us-east-1.amazonaws.com/inteldev-ecr-docker-imagesitory-dev
+ 
+# Build Docker image
+docker build -t my-docker-image .
+ 
+# Tag Docker image
+docker tag my-docker-image:latest 123456789012.dkr.ecr.us-west-2.amazonaws.com/my-docker-image:latest
+ 
+# Push Docker image to ECR
+docker push 851725287825.dkr.ecr.us-east-1.amazonaws.com/my-docker-image:latest
+
+
+
+
+for glue job execution, need to do outside of the vpc, 
+he is going to connect postgres with connection details no need to provide any vpc related creds..
+
+
+RITM7426721  ---------------- for Qualys
+
