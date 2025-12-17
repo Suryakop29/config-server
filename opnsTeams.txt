@@ -1,0 +1,28 @@
+
+
+
+from Chintal.
+
+Access related issue with Client environment not resolved as early as possible.
+Overall KT about the Project
+Not aware of the Work they allotted, 
+
+
+
+from Sagar,
+
+Access related issues resolution taking long time.
+Need Overall Architecture idea and how the components are working.
+Working on Angular and Node.js, but not sure how to run end to end.
+
+From Sanchit :
+
+Learning new technologies like Go lang. 
+Lack of proper documentation.
+Overall Project idea,
+
+Currently the project is on On-Premises, we need to migrate to AWS (Cloud environment).
+
+
+
+
